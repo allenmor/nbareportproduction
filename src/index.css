@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
 body {
   margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #ebebeb;
 }
 /* NAVBAR START */
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -13,6 +18,7 @@ body {
   position: relative;
   z-index: 999;
 }
+
 
 .logo {
   align-items: center;
@@ -34,19 +40,6 @@ body {
   background-color: lightblue;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #333;
-  color: #fff;
-  height: 70px;
-  min-width: 600px; /* adjust this value to fit your logo */
-  padding: 0 20px;
-  position: relative;
-  z-index: 999;
-}
-
 .navbar-menu {
   display: flex;
   text-align: center;
@@ -66,7 +59,88 @@ body {
 .navbar-item:hover {
   background-color: #444;
 }
-
-
-
 /* NAVBAR END */
+
+/* NEWS START */
+.news-container {
+
+}
+
+.eachNews-card{
+display: flex;
+border: 1px solid black;
+margin: 10px;
+border-radius: 5px;
+padding: 10px;
+align-items: center;
+}
+
+
+.newsImg {
+  width: 35%;
+  border-radius: 5px;
+  margin: 5px;
+}
+.eachNews-h1 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.newsDate {
+  font-size: 12px;
+  color: gray;
+}
+.news-info-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.read-btn {
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  font-size: 0.5rem;
+  margin-left: 10px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.read-btn:hover {
+  background-color: #0062cc;
+}
+
+.read-btn:active {
+  transform: translateY(1px);
+}
+
+@media screen and (max-width: 768px) {
+  .eachNews-card{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    align-items: center;
+    }
+    .eachNews-h1 {
+      text-align: center;
+    }
+    .newsImg {
+      width: 100%;
+      border-radius: 5px;
+      margin: 5px;
+      object-fit: contain;
+    }
+}
+
+
+
+/* NEWS END */

@@ -1,12 +1,16 @@
-import React from 'react'
-import RealGm from './RealGm'
+import React from "react";
+import Espn from "./Espn";
+import RealGm from "./RealGm";
 function NewsContainer() {
   return (
-    <div>
+    <>
         <h1>NewsContainer</h1>
+      <div className="news-container">
         <RealGm />
-    </div>
-  )
-} 
- 
-export default NewsContainer
+        <Espn />
+      </div>
+    </>
+  );
+}
+
+export default NewsContainer;

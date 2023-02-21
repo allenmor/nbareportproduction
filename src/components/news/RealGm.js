@@ -1,9 +1,10 @@
 import $ from 'jquery';
 import { useEffect, useState } from 'react';
+import NewsCard from './NewsCard';
 
 function RealGm() {
   const [news, setNews] = useState([]);
-
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     $.ajax({
       url: 'https://api.rss2json.com/v1/api.json',
@@ -19,13 +20,20 @@ function RealGm() {
         return !el.title.toLowerCase().includes('realgm')
       });
       setNews(b);
+      setIsLoading(false)
     });
-  }, []);
+}, []);
+console.log(news);
 
   return (
-    <div>
-      <h1>RealGM</h1>
-    </div>
+    <>
+    {isLoading ? <p>Loading...</p> : 
+      news.map((el, i) => {
+        return <NewsCard key={i} title={el.title} date={el.pubDate} image={el.thumbnail} description={el.description}/>
+      })
+    }
+    </>
+
   );
 }
 
