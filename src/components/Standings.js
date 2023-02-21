@@ -10,7 +10,7 @@ function Standings() {
       .then((res) => res.json())
       .then((data) => {
         setData(data);
-        setIsLoading(false)
+        setIsLoading(false) 
       });
   }, []);
 
