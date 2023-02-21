@@ -25,7 +25,7 @@ function Navbar() {
       <div className="navbar-menu">
         <p onClick={handleStandingsClick} className="navbar-item">Standings</p>
         <p onClick={handleStatsClick} className="navbar-item">Stats</p>
-        {/* <p className="navbar-item">Games</p> */}
+        <p className="navbar-item">Games</p>
       </div>
     </nav>
   );
