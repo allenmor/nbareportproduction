@@ -4,7 +4,7 @@ import RealGm from "./RealGm";
 function NewsContainer() {
   return (
     <>
-        <h1>NewsContainer</h1>
+      <h1 className="current-news">Current News</h1>
       <div className="news-container">
         <RealGm />
         <Espn />

@@ -19,8 +19,9 @@ function Navbar() {
     }
   return (
     <nav className="navbar">
-      <div className="logo">
+      <div className="logo-div">
         <img onClick={handleLogoClick} className="logo-image" src={logo} alt='logo' />
+        <p className="home" onClick={handleLogoClick}>Home</p>
       </div>
       <div className="navbar-menu">
         <p onClick={handleStandingsClick} className="navbar-item">Standings</p>
