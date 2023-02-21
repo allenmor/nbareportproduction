@@ -144,3 +144,47 @@ align-items: center;
 
 
 /* NEWS END */
+
+/* STANDINGS START */
+
+.standings-table-div {
+  overflow-x: scroll;
+}
+
+.standings-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.standings-table thead {
+  background-color: #333;
+  color: #fff;
+}
+
+.standings-table th, .standings-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.standings-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.standings-table tr:hover {
+  background-color: #ddd;
+}
+
+.standings-table th:first-child, .standings-table td:first-child {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .standings-table {
+    font-size: 12px;
+  }
+}
+
+
+/* STANDINGS END */
