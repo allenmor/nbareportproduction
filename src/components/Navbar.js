@@ -14,10 +14,13 @@ function Navbar() {
         navigate('/stats')
     }
 
+    function handleLogoClick() {
+        navigate('/')
+    }
   return (
     <nav className="navbar">
       <div className="logo">
-        <img className="logo-image" src={logo} alt='logo' />
+        <img onClick={handleLogoClick} className="logo-image" src={logo} alt='logo' />
       </div>
       <div className="navbar-menu">
         <p onClick={handleStandingsClick} className="navbar-item">Standings</p>

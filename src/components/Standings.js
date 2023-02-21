@@ -9,7 +9,6 @@ function Standings() {
     fetch("http://localhost:3000/standings")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setData(data);
         setIsLoading(false)
       });
@@ -32,15 +31,15 @@ function Standings() {
             <tr>
               <th>Team</th>
               <th>GP</th>
-              <th>W</th>
-              <th>L</th>
+              <th  style={{ backgroundColor: 'rgba(0, 0, 255, 0.7)' }}>W</th>
+              <th style={{ backgroundColor: 'rgba(0, 0, 255, 0.7)' }}>L</th>
               <th>PCT</th>
               <th>PTS +</th>
               <th>PTS -</th>
               <th>PTS+ /G</th>
               <th>PTS- /G</th>
               <th>DIFF</th>
-              <th>Expecting Winning PCT</th>
+              <th>Expected Winning PCT</th>
             </tr>
           </thead>
           <tbody>
@@ -54,10 +53,10 @@ function Standings() {
                 }}
                 onClick={() => handleRowClick(index)}
               >
-                <td>{stat.Team}</td>
+                <td style={{ color: 'blue' }}>{stat.Team}</td>
                 <td>{stat.Gp}</td>
-                <td>{stat.Gw}</td>
-                <td>{stat.GL}</td>
+                <td style={{ backgroundColor: 'rgba(0, 0, 255, 0.7)', color: 'white', fontWeight: 'bold' }}>{stat.Gw}</td>
+                <td style={{ backgroundColor: 'rgba(0, 0, 255, 0.7)', color: 'white', fontWeight: 'bold'  }}>{stat.GL}</td>
                 <td>{(parseFloat(stat['% Victory'])/100).toFixed(3).substring(1)}</td>
                 <td>{stat['Pts+']}</td>
                 <td>{stat['Pts-']}</td>

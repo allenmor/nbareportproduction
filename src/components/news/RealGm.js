@@ -23,7 +23,7 @@ function RealGm() {
       setIsLoading(false)
     });
 }, []);
-console.log(news);
+
 
   return (
     <>
