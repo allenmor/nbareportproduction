@@ -65,8 +65,8 @@ function Standings() {
               >
                 <td onClick={() => handleTeamClick(stat.Team)} style={{ color: 'blue' }}>{stat.Team}</td>
                 <td>{stat.Gp}</td>
-                <td style={{ backgroundColor: 'rgba(0, 0, 255, 0.7)', color: 'white', fontWeight: 'bold' }}>{stat.Gw}</td>
-                <td style={{ backgroundColor: 'rgba(0, 0, 255, 0.7)', color: 'white', fontWeight: 'bold'  }}>{stat.GL}</td>
+                <td style={{ backgroundColor: 'rgba(0, 0, 255, 0.2)', color: 'black', fontWeight: 'bold' }}>{stat.Gw}</td>
+                <td style={{ backgroundColor: 'rgba(0, 0, 255, 0.2)', color: 'black', fontWeight: 'bold'  }}>{stat.GL}</td>
                 <td>{(parseFloat(stat['% Victory'])/100).toFixed(3).substring(1)}</td>
                 <td>{stat['Pts+']}</td>
                 <td>{stat['Pts-']}</td>

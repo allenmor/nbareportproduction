@@ -149,13 +149,13 @@ function Lineups() {
                   <td style={{ color: "blue" }}>{stats.Player}</td>
                   <td>{stats.Age}</td>
                   <td>{stats.Height}</td>
-                  <td style={{ backgroundColor: "rgba(0, 0, 255, 0.2)" }}>
+                  <td style={{ backgroundColor: "rgba(0, 0, 255, 0.2)", color: 'black', fontWeight: 'bold' }}>
                     {stats.Pts}
                   </td>
-                  <td style={{ backgroundColor: "rgba(0, 0, 255, 0.2)" }}>
+                  <td style={{ backgroundColor: "rgba(0, 0, 255, 0.2)", color: 'black', fontWeight: 'bold'  }}>
                     {stats.Reb}
                   </td>
-                  <td style={{ backgroundColor: "rgba(0, 0, 255, 0.2)" }}>
+                  <td style={{ backgroundColor: "rgba(0, 0, 255, 0.2)", color: 'black', fontWeight: 'bold'  }}>
                     {stats.Ast}
                   </td>
                   <td>{stats.GP}</td>
