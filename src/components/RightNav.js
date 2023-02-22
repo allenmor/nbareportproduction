@@ -6,6 +6,8 @@ const Ul = styled.ul`
   list-style: none;
   display: flex;
   flex-flow: row nowrap;
+  cursor: pointer;
+  user-select: none;
   li {
     padding: 18px 10px;
     color: white
