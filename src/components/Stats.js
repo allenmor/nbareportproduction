@@ -10,7 +10,6 @@ function Stats() {
     fetch('https://nbaexpressbe.onrender.com/')
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         setData(data);
         setIsLoading(false)
       })
