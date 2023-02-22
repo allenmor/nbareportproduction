@@ -45,6 +45,9 @@ function RightNav({ open }) {
         navigate('/stats')
     }
 
+    function handleLeadersClick() {
+        navigate('/leaders')
+    }
 
   return React.createElement(
     Ul,
@@ -52,7 +55,7 @@ function RightNav({ open }) {
     React.createElement('li', {onClick: handleHomeClick}, null, 'Home'),
     React.createElement('li', {onClick: handleStandingsClick}, null, 'Standings'),
     React.createElement('li', {onClick: handleStatsClick}, null, 'Stats'),
-    React.createElement('li', {onClick: handleStandingsClick}, null, 'Games')
+    React.createElement('li', {onClick: handleLeadersClick}, null, 'Leaders')
   );
 }
 

@@ -4,7 +4,7 @@ import Stats from "./components/Stats";
 import Standings from "./components/Standings";
 import Navbars from "./components/Navbars";
 import Lineups from "./components/Lineups";
-
+import Leaders from "./components/Leaders";
 
 
 function App() {
@@ -17,6 +17,7 @@ function App() {
         <Route path="/standings" element={<Standings />} />
         <Route path="/stats" element={<Stats />} />
         <Route path="/lineups" element={<Lineups />} />
+        <Route path="/leaders" element={<Leaders />} />
       </Routes>
     </div> 
   );
