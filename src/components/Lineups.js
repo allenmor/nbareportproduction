@@ -7,6 +7,7 @@ function Lineups() {
   const [team, setTeam] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { teamSelect } = location.state;
+
   useEffect(() => {
     let url = "";
 
@@ -111,6 +112,7 @@ function Lineups() {
         setTeam(data);
         setIsLoading(false);
       });
+  // eslint-disable-next-line
   }, []);
 
   return (
@@ -121,7 +123,7 @@ function Lineups() {
         <table className="standings-table">
           <thead>
             <tr>
-              <th>Player</th>
+              <th>Player</th> 
               <th>Age</th>
               <th>Height</th>
               <th style={{ backgroundColor: "blue" }}>Pts</th>
