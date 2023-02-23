@@ -197,7 +197,9 @@ align-items: center;
 .standings-table th:first-child, .standings-table td:first-child {
   text-align: center;
 }
-
+.team-name-h1 {
+  text-align: center;
+}
 @media (max-width: 768px) {
   .standings-table {
     font-size: 12px;

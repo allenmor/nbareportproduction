@@ -120,6 +120,8 @@ function Lineups() {
       {isLoading ? (
         <p>Loading...</p>
       ) : (
+        <>
+        <h1 className="team-name-h1">{teamSelect} Roster</h1>
         <table className="standings-table">
           <thead>
             <tr>
@@ -174,6 +176,7 @@ function Lineups() {
             })}
           </tbody>
         </table>
+        </>
       )}
     </div>
   );

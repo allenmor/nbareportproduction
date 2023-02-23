@@ -43,7 +43,9 @@ function Stats() {
   
   return (
     <div className='standings-table-div'>
-     {isLoading ? <p>Loading...</p> : <table className='standings-table'>
+      <h1 className='team-name-h1'>2022-23 NBA Player Stats: Per Game</h1>
+     {isLoading ? <p>Loading...</p> : 
+     <table className='standings-table'>
         <thead>
           <tr>
             <th>Player</th>

@@ -74,7 +74,10 @@ function Leaders() {
         setEfficiencyLoading(false);
       });
   }, []);
+
   return (
+    <>
+      <h1 className='team-name-h1'>NBA 2022-2023 LEADERS</h1>
     <div className="leaders-div">
       <div className="leaders-each-container">
         <h1 className="leader-h1">Points per game</h1>
@@ -189,6 +192,7 @@ function Leaders() {
         )}
       </div>
     </div>
+    </>
   );
   
 }

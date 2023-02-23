@@ -33,6 +33,7 @@ function Standings() {
   }
   return (
     <div className="standings-table-div">
+      <h1 className='team-name-h1'>2022-23 NBA Standings</h1>
       {isLoading ? (
         <p>Loading...</p>
       ) : (
