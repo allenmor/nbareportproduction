@@ -1,14 +1,18 @@
-import React from 'react';
-import styled from 'styled-components';
-import Burger from './Burger';
+import { logDOM } from "@testing-library/react";
+import React from "react";
+import styled from "styled-components";
+import Burger from "./Burger";
+import { useNavigate } from "react-router-dom";
 
 const Nav = styled.nav`
+  position: sticky;
+  top: 0;
   height: 55px;
   border-bottom: 2px solid #f1f1f1;
   padding: 0 20px;
   display: flex;
   justify-content: space-between;
-  background-color: rgb(51,51,51);
+  background-color: rgb(51, 51, 51);
   display: flex;
   align-items: center;
   .logo {
@@ -17,13 +21,20 @@ const Nav = styled.nav`
     cursor: pointer;
     user-select: none;
   }
-`
+`;
+
 
 function Navbars() {
+
+  const navigate = useNavigate()
+
+  function handleNbaReportClick() {
+    navigate('/')
+  }
   return React.createElement(
     Nav,
     null,
-    React.createElement('div', { className: 'logo' }, 'NBA Report'),
+    React.createElement("div", { className: "logo", onClick: handleNbaReportClick }, "NBA Report"),
     React.createElement(Burger, null)
   );
 }
