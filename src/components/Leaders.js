@@ -21,7 +21,6 @@ function Leaders() {
   fetch('https://nbaexpressbe.onrender.com/leaderstats')
   .then(res => res.json())
   .then(data => {
-    console.log(data);
     setPoints(data.points);
     setPointsLoading(false);
     setRebounds(data.rebounds);
