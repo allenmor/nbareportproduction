@@ -17,64 +17,27 @@ function Leaders() {
   const [blocksLoading, setBlocksLoading] = useState(true);
   const [efficiencyLoading, setEfficiencyLoading] = useState(true);
 
-  useEffect(() => {
-    fetch("https://nbaexpressbe.onrender.com/points")
-      .then((res) => res.json())
-      .then((data) => {
-        setPoints(data);
-        setPointsLoading(false);
-      });
-  }, []);
-  useEffect(() => {
-    fetch("https://nbaexpressbe.onrender.com/rebounds")
-      .then((res) => res.json())
-      .then((data) => {
-        setRebounds(data);
-        setReboundsLoading(false);
-      });
-  }, []);
-  useEffect(() => {
-    fetch("https://nbaexpressbe.onrender.com/assists")
-      .then((res) => res.json())
-      .then((data) => {
-        setAssists(data);
-        setAssistsLoading(false);
-      });
-  }, []);
-  useEffect(() => {
-    fetch("https://nbaexpressbe.onrender.com/threes")
-      .then((res) => res.json())
-      .then((data) => {
-        setThrees(data);
-        setThreesLoading(false);
-      });
-  }, []);
-  useEffect(() => {
-    fetch("https://nbaexpressbe.onrender.com/steals")
-      .then((res) => res.json())
-      .then((data) => {
-        setSteals(data);
-        setStealsLoading(false);
-      });
-  }, []);
-  useEffect(() => {
-    fetch("https://nbaexpressbe.onrender.com/blocks")
-      .then((res) => res.json())
-      .then((data) => {
-        setBlocks(data);
-        setBlocksLoading(false);
-      });
-  }, []);
-  useEffect(() => {
-    fetch("https://nbaexpressbe.onrender.com/efficiency")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setEfficiency(data);
-        setEfficiencyLoading(false);
-      });
-  }, []);
-
+  useEffect(()=>{
+  fetch('https://nbaexpressbe.onrender.com/leaderstats')
+  .then(res => res.json())
+  .then(data => {
+    console.log(data);
+    setPoints(data.points);
+    setPointsLoading(false);
+    setRebounds(data.rebounds);
+    setReboundsLoading(false);
+    setAssists(data.assists);
+    setAssistsLoading(false);
+    setThrees(data.threes);
+    setThreesLoading(false);
+    setSteals(data.steals);
+    setStealsLoading(false);
+    setBlocks(data.blocks);
+    setBlocksLoading(false);
+    setEfficiency(data.efficiency);
+    setEfficiencyLoading(false);
+  })
+  },[])
   return (
     <>
       <h1 className='team-name-h1'>NBA 2022-2023 LEADERS</h1>
