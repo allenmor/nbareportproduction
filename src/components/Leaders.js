@@ -26,7 +26,7 @@ function Leaders() {
       });
   }, []);
   useEffect(() => {
-    fetch("http://localhost:3000/rebounds")
+    fetch("https://nbaexpressbe.onrender.com/rebounds")
       .then((res) => res.json())
       .then((data) => {
         setRebounds(data);
@@ -34,7 +34,7 @@ function Leaders() {
       });
   }, []);
   useEffect(() => {
-    fetch("http://localhost:3000/assists")
+    fetch("https://nbaexpressbe.onrender.com/assists")
       .then((res) => res.json())
       .then((data) => {
         setAssists(data);
@@ -42,7 +42,7 @@ function Leaders() {
       });
   }, []);
   useEffect(() => {
-    fetch("http://localhost:3000/threes")
+    fetch("https://nbaexpressbe.onrender.com/threes")
       .then((res) => res.json())
       .then((data) => {
         setThrees(data);
@@ -50,7 +50,7 @@ function Leaders() {
       });
   }, []);
   useEffect(() => {
-    fetch("http://localhost:3000/steals")
+    fetch("https://nbaexpressbe.onrender.com/steals")
       .then((res) => res.json())
       .then((data) => {
         setSteals(data);
@@ -58,7 +58,7 @@ function Leaders() {
       });
   }, []);
   useEffect(() => {
-    fetch("http://localhost:3000/blocks")
+    fetch("https://nbaexpressbe.onrender.com/blocks")
       .then((res) => res.json())
       .then((data) => {
         setBlocks(data);
@@ -66,7 +66,7 @@ function Leaders() {
       });
   }, []);
   useEffect(() => {
-    fetch("http://localhost:3000/efficiency")
+    fetch("https://nbaexpressbe.onrender.com/efficiency")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
