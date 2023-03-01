@@ -30,32 +30,38 @@ const Ul = styled.ul`
 `;
 
 
-function RightNav({ open }) {
+function RightNav({ open, onClose }) {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate('/')
+  function handleLinkClick(path) {
+    // Navigate to the path and close the navbar
+    navigate(path);
+    onClose();
+  }
 
-    function handleHomeClick() {
-        navigate('/')
-    }
-    function handleStandingsClick() {
-        navigate('/standings')
-    }
+  function handleHomeClick() {
+    handleLinkClick('/');
+  }
 
-    function handleStatsClick() {
-        navigate('/stats')
-    }
+  function handleStandingsClick() {
+    handleLinkClick('/standings');
+  }
 
-    function handleLeadersClick() {
-        navigate('/leaders')
-    }
+  function handleStatsClick() {
+    handleLinkClick('/stats');
+  }
 
-  return React.createElement(
-    Ul,
-    { open: open },
-    React.createElement('li', {onClick: handleHomeClick}, null, 'Home'),
-    React.createElement('li', {onClick: handleStandingsClick}, null, 'Standings'),
-    React.createElement('li', {onClick: handleStatsClick}, null, 'Stats'),
-    React.createElement('li', {onClick: handleLeadersClick}, null, 'Leaders')
+  function handleLeadersClick() {
+    handleLinkClick('/leaders');
+  }
+
+  return (
+    <Ul open={open} onClick={onClose}>
+      <li onClick={handleHomeClick}>Home</li>
+      <li onClick={handleStandingsClick}>Standings</li>
+      <li onClick={handleStatsClick}>Stats</li>
+      <li onClick={handleLeadersClick}>Leaders</li>
+    </Ul>
   );
 }
 
