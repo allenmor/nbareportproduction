@@ -312,7 +312,6 @@ font-size: 12.5px;
   justify-content: space-around;
   flex-direction: row;
   align-items: center;
-  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
