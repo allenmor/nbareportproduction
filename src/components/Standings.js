@@ -64,7 +64,7 @@ function Standings() {
                 }}
                 onClick={() => handleRowClick(index)}
               >
-                <td onClick={() => handleTeamClick(stat.Team)} style={{ color: 'blue' }}>{stat.Team}</td>
+                <td className="team-standings-name" onClick={() => handleTeamClick(stat.Team)}>{stat.Team}</td>
                 <td>{stat.Gp}</td>
                 <td style={{ backgroundColor: 'rgba(0, 0, 255, 0.2)', color: 'black', fontWeight: 'bold' }}>{stat.Gw}</td>
                 <td style={{ backgroundColor: 'rgba(0, 0, 255, 0.2)', color: 'black', fontWeight: 'bold'  }}>{stat.GL}</td>

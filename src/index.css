@@ -236,7 +236,10 @@ align-items: center;
   }
 }
 
-
+.team-standings-name {
+  color: blue;
+  cursor: pointer;
+}
 /* STANDINGS END */
 
 /* LEADERS START */
