@@ -168,7 +168,29 @@ align-items: center;
   text-align: center;
 }
 
+.news-pics-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid black;
+  width: 24rem;
+  height: 15rem;
+  border-radius: 5px;
+  background-color: rgb(51,51,51);
+}
+.news-pics-container img {
+  width: 23rem;
+  height: 14rem;
+  object-fit: cover;
+  border-radius: 5px;
+}
 
+
+.newsheader-pic {
+  display: flex;
+  flex-direction: column;
+    align-items: center;
+}
 /* NEWS END */
 
 /* STANDINGS START */

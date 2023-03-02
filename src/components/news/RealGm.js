@@ -1,10 +1,15 @@
 import $ from 'jquery';
 import { useEffect, useState } from 'react';
 import NewsCard from './NewsCard';
+import { useDispatch } from 'react-redux';
+import { addData } from '../../actions';
+
 
 function RealGm() {
   const [news, setNews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useDispatch(); 
+
   useEffect(() => {
     $.ajax({
       url: 'https://api.rss2json.com/v1/api.json',
@@ -21,11 +26,13 @@ function RealGm() {
       });
       setNews(b);
       setIsLoading(false)
+      dispatch(addData(b));
     });
-}, []);
+    
+}, [dispatch]);
 
 
-  return (
+  return ( 
     <>
     {isLoading ? <p>Loading...</p> : 
       news.map((el, i) => {
@@ -37,4 +44,4 @@ function RealGm() {
   );
 }
 
-export default RealGm
+export default RealGm;

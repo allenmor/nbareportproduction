@@ -1,14 +1,18 @@
 import React from "react";
 import Espn from "./Espn";
+import NewsPics from "./NewsPics";
 import RealGm from "./RealGm";
+
 function NewsContainer() {
-  
   return (
     <>
-      <h1 className="current-news">Current News</h1>
-      <div className="news-container">
-        <RealGm />
-        <Espn />
+      <div className="newsheader-pic">
+        <h1 className="current-news">Current News</h1>
+        <NewsPics />
+        <div className="news-container">
+          <RealGm />
+          <Espn />
+        </div>
       </div>
     </>
   );

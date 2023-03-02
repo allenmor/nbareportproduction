@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import $ from 'jquery';
+import { useDispatch } from 'react-redux';
 import NewsCard from './NewsCard';
+import { addData } from '../../actions';
 
 function Espn() {
-    const [news, setNews] = useState([])
-    const [isLoading, setIsLoading] = useState(true);
+  const [news, setNews] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     $.ajax({
@@ -19,17 +22,29 @@ function Espn() {
         throw response.message;
       }
       setNews(response.items);
-      setIsLoading(false)
+      setIsLoading(false);
+      dispatch(addData(response.items));
     });
-  }, []);
+  }, [dispatch]);
+
   return (
-      <>
-    {isLoading ? <p>Loading...</p> : 
-      news.map((el, i) => {
-        return <NewsCard key={i} title={el.title} date={el.pubDate} image={el.enclosure.link} description={el.description}/>
-      })
-    }
-      </>
+    <>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        news.map((el, i) => {
+          return (
+            <NewsCard
+              key={i}
+              title={el.title}
+              date={el.pubDate}
+              image={el.enclosure.link}
+              description={el.description}
+            />
+          );
+        })
+      )}
+    </>
   );
 }
 
