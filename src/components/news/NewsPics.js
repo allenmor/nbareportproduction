@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useSelector } from "react-redux";
 
 function NewsPics() {
@@ -6,17 +6,19 @@ function NewsPics() {
   const [newsPics, setNewsPics] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const imageArray = newsPics.map((el) => {
-    if (el.thumbnail) {
-      return el.thumbnail;
-    } else if (el.enclosure.thumbnail) {
-      return el.enclosure.thumbnail;
-    } else if (el.enclosure.link) {
-      return el.enclosure.link;
-    } else {
-      return 'https://www.logodesignlove.com/images/classic/nba-logo.jpg';
-    }
-  });
+  const imageArray = useMemo(() => {
+    return newsPics.map((el) => {
+      if (el.thumbnail) {
+        return el.thumbnail;
+      } else if (el.enclosure.thumbnail) {
+        return el.enclosure.thumbnail;
+      } else if (el.enclosure.link) {
+        return el.enclosure.link;
+      } else {
+        return 'https://www.logodesignlove.com/images/classic/nba-logo.jpg';
+      }
+    });
+  }, [newsPics]);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
