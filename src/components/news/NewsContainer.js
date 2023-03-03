@@ -2,6 +2,7 @@ import React from "react";
 import Espn from "./Espn";
 import NewsPics from "./NewsPics";
 import RealGm from "./RealGm";
+import Cbs from "./Cbs";
 
 function NewsContainer() {
   return (
@@ -12,6 +13,7 @@ function NewsContainer() {
         <div className="news-container">
           <RealGm />
           <Espn />
+          <Cbs />
         </div>
       </div>
     </>
