@@ -24,7 +24,6 @@ function Cbs() {
       const items = response.items;
 
     setNews(items)
-    console.log(items);
       setIsLoading(false);
       dispatch(addData(items));
     });
