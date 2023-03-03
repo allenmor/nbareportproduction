@@ -8,7 +8,7 @@ function NewsContainer() {
   return (
     <>
       <div className="newsheader-pic">
-        <h1 className="current-news">Current News</h1>
+        <h1 className="current-news">Latest News</h1>
         <NewsPics />
         <div className="news-container">
           <RealGm />

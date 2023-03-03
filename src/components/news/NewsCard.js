@@ -5,6 +5,9 @@ function NewsCard({ title, date, image, description }) {
   const formattedDescription = description.replace(/(<([^>]+)>)/gi, "");
   const shortenedDescription = formattedDescription.substring(0, 100);
 
+  if(!image) {
+    image = 'https://assets.turbologo.com/blog/en/2019/10/19084930/NBA-logo-illustration.jpg'
+  }
   // make the date look better
   const options = {
     month: "short",
@@ -18,6 +21,7 @@ function NewsCard({ title, date, image, description }) {
 
   const handleReadMore = () => {
     setShowFullDescription(true);
+
   };
 
   const handleReadLess = () => {
@@ -26,8 +30,8 @@ function NewsCard({ title, date, image, description }) {
 
   return (
     <div className="eachNews-card">
-      <img alt="newsImg" className="newsImg" src={image ? image : 'https://www.logodesignlove.com/images/classic/nba-logo.jpg'} />
-      <div className="news-info-div">
+      <img alt="newsImg" className="newsImg" src={image ? image : ''} />
+      <div style={showFullDescription ? {overflowY: 'scroll'} : {}} className="news-info-div">
         <h1 className="eachNews-h1">{title}</h1>
         <p className="newsDate">{formattedDate}</p>
         <p className="description">

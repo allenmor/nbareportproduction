@@ -25,6 +25,7 @@ function Cbs() {
 
     setNews(items)
       setIsLoading(false);
+      console.log(items);
       dispatch(addData(items));
     });
   }, [dispatch]);
