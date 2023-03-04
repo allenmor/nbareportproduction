@@ -263,9 +263,9 @@ body {
 
 .leaders-div {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
   align-items: center;
+  flex-direction: row;
+  overflow-x: scroll;
 }
 .leaders-each-container {
   border: 1px solid lightgray;
@@ -282,7 +282,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: 100%;
+  width: 21rem;
   margin: 4px;
 }
 
@@ -319,7 +319,7 @@ body {
   padding: 9px;
   font-style: italic;
   font-size: 16px;
-  border-top: 1px solid lightgray;
+  margin-top: 0;
   border-bottom: 1px solid lightgray;
   width: 100%;
   text-align: center;
