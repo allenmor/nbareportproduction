@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function NewsCard({ title, date, image, description }) {
   const [showFullDescription, setShowFullDescription] = useState(false);
   const formattedDescription = description.replace(/(<([^>]+)>)/gi, "");
-  const shortenedDescription = formattedDescription.substring(0, 100);
+  const shortenedDescription = formattedDescription.substring(0, 90);
 
   if(!image) {
     image = 'https://assets.turbologo.com/blog/en/2019/10/19084930/NBA-logo-illustration.jpg'
