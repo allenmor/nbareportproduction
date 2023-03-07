@@ -364,3 +364,37 @@ margin-left: auto;
 }
 
 /* FOOTER END */
+
+/* GAMES START */
+.games-div {
+  width: 95%;
+  overflow-x: scroll;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.team-score-divs {
+  display: flex;
+  width: 12rem;
+  justify-content: space-between;
+}
+.team-score-divs p {
+  font-size: 14px;
+  margin: 0;
+  
+}
+.card {
+  width: 15rem;
+  margin: 10px;
+  border: 1px dotted gray;
+  padding: 5px;
+}
+.scores-table {
+  width: 100%;
+  font-size: 13px;
+}
+.scores-table td,th {
+    text-align: center;
+    padding: 8px;
+}
+/* GAMES END */

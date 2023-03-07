@@ -50,7 +50,7 @@ function Leaders() {
         setEfficiency(data.efficiency);
         setEfficiencyLoading(false);
       });
-    fetch("http://localhost:3000/statleader")
+    fetch("https://nbaexpressbe.onrender.com/statleader")
       .then((res) => res.json())
       .then((data) => {
         setPointsTwo(data.points);
