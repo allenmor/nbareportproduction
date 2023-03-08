@@ -265,7 +265,21 @@ body {
   display: flex;
   align-items: center;
   flex-direction: row;
-  overflow-x: scroll;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.stats-info {
+  display: flex;
+}
+.stats-container {
+  display: flex;
+  justify-content: space-between;
+}
+.stats-container p {
+  margin: 5px;
+}
+.points-in-leaders {
+  text-align: right;
 }
 .leaders-each-container {
   border: 1px solid lightgray;
@@ -280,10 +294,11 @@ body {
 }
 .leaders-card-div {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 21rem;
-  margin: 4px;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 20rem;
+  margin: 5px;
+  padding: 10px;
 }
 
 .leaders-team-name {

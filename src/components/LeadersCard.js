@@ -1,52 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react';
 
-// Mapping of team names to their abbreviations
-const teamAbbreviations = {
-  "Atlanta Hawks": "ATL",
-  "Boston Celtics": "BOS",
-  "Brooklyn Nets": "BKN",
-  "Charlotte Hornets": "CHA",
-  "Chicago Bulls": "CHI",
-  "Cleveland Cavaliers": "CLE",
-  "Dallas Mavericks": "DAL",
-  "Denver Nuggets": "DEN",
-  "Detroit Pistons": "DET",
-  "Golden State Warriors": "GSW",
-  "Houston Rockets": "HOU",
-  "Indiana Pacers": "IND",
-  "LA Clippers": "LAC",
-  "Los Angeles Lakers": "LAL",
-  "Memphis Grizzlies": "MEM",
-  "Miami Heat": "MIA",
-  "Milwaukee Bucks": "MIL",
-  "Minnesota Timberwolves": "MIN",
-  "New Orleans Pelicans": "NOP",
-  "New York Knicks": "NYK",
-  "Oklahoma City Thunder": "OKC",
-  "Orlando Magic": "ORL",
-  "Philadelphia 76ers": "PHI",
-  "Phoenix Suns": "PHX",
-  "Portland Trail Blazers": "POR",
-  "Sacramento Kings": "SAC",
-  "San Antonio Spurs": "SAS",
-  "Toronto Raptors": "TOR",
-  "Utah Jazz": "UTA",
-  "Washington Wizards": "WAS",
-}
-
-function LeadersCard({image, name, team, points, number}) {
-  // Look up the abbreviation for the team name
-  const teamAbbreviation = teamAbbreviations[team]
+function LeadersCard({ stat }) {
+  const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className='leaders-card-div'>
-      <p>{number}</p>
-      <img className='leaders-image' alt='player' src={image} style={{maxWidth: '100%'}} />
-      <div className='name-team-div' style={{marginLeft: '10px'}}>
-        <p className='leaders-player-name'>{name}</p>
-        <p className='leaders-team-name'>{teamAbbreviation}</p>
+    <div className='leaders-card-div' onClick={() => setExpanded(!expanded)}>
+      <h3>{stat.categoryName}</h3>
+      <div className='stats-container' >
+      <div className='stats-info'>
+        <p>{stat.tableData[0].col0}</p>
+        <p>{stat.tableData[0].playerName}</p>
+        <p>{stat.tableData[0].teamName}</p>
       </div>
-      <p className='leaders-points'>{points}</p>
+        <p>{stat.tableData[0].col2}</p>
+      </div>
+      {expanded && stat.tableData.slice(1).map((el, i) => {
+        return (
+      <div className='stats-container' >
+
+          <div key={i} className='stats-info'>
+            <p>{el.col0}</p>
+            <p>{el.playerName}</p>
+            <p>{el.teamName}</p>
+          </div>
+            <p>{el.col2}</p>
+          </div>
+        )
+      })}
     </div>
   )
 }

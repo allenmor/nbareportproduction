@@ -5,7 +5,6 @@ import Standings from "./components/Standings";
 import Navbars from "./components/Navbars";
 import Lineups from "./components/Lineups";
 import Leaders from "./components/Leaders";
-
 import Footer from "./components/Footer";
 
 function App() {
