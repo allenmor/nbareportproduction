@@ -1,12 +1,17 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { addPlayer } from "../actions";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function Lineups() {
   const location = useLocation();
   const [team, setTeam] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { teamSelect } = location.state;
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   useEffect(() => {
     let url = "";
@@ -115,6 +120,27 @@ function Lineups() {
   // eslint-disable-next-line
   }, []);
 
+  function handleNameClick(playerName) {
+    let player = playerName.split("");
+    let playArr = [];
+    for (let i = 0; i < player.length; i++) {
+      if(player[i] !== "č" && player[i] !== "ć") {
+        playArr.push(player[i])
+      } else {
+        playArr.push('c')
+      } 
+    }
+    let playerNameDone = playArr.join('')
+    fetch(`https://nbaexpressbe.onrender.com/player?name=${playerNameDone}`)
+      .then((res) => res.json()) 
+      .then((data) => {
+        dispatch(addPlayer(data)); // Dispatch the addPlayer action with the player data
+        navigate('/stats/player')
+      })
+      .catch((error) => console.error(error));
+  }
+
+
   return (
     <div className="standings-table-div">
       {isLoading ? (
@@ -148,7 +174,7 @@ function Lineups() {
             {team.map((stats, i) => {
               return (
                 <tr key={i}>
-                  <td style={{ color: "blue" }}>{stats.Player}</td>
+                  <td onClick={() => handleNameClick(stats.Player)} style={{ color: "blue", cursor:'pointer' }}>{stats.Player}</td>
                   <td>{stats.Age}</td>
                   <td>{stats.Height}</td>
                   <td style={{ backgroundColor: "rgba(0, 0, 255, 0.2)", color: 'black', fontWeight: 'bold' }}>
