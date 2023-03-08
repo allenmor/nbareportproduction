@@ -25,7 +25,7 @@ function Player() {
             {player.heightWeight}
           </p>
           <div className="player-career-table-div">
-            <table>
+            <table className="player-table">
               <thead>
                 <tr className="table-headers-player">
                   <th>Season</th>

@@ -477,5 +477,8 @@ th {
 .table-headers-player td{
   font-weight: bold;
 }
+.player-table td{
+  white-space: nowrap;
+}
 
 /* PLAYERS COMPONENT END */
