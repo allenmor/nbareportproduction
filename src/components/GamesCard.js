@@ -1,7 +1,6 @@
 import React from "react";
 
 function GamesCard({ game }) {
-    console.log(+game.awayScore);
   return (
     <div className="card">
       <div className="team-score-divs">

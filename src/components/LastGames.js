@@ -10,7 +10,6 @@ export default function LastGames() {
       .then((response) => response.json())
       .then((data) => {
         setGames(data)
-        console.log(data);
       })
       .catch((error) => console.error(error));
   }, []);
