@@ -8,6 +8,16 @@ import Leaders from "./components/Leaders";
 import Footer from "./components/Footer";
 import Player from "./components/Player";
 
+function setCookie(name, value, days) {
+  var expires = "";
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+    expires = "; expires=" + date.toUTCString();
+  }
+  document.cookie = name + "=" + value + expires + "; path=/; SameSite=None; Secure";
+}
+setCookie('myCookie', 'myValue', 7);
 function App() {
 
   return ( 
