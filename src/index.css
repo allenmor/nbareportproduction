@@ -336,7 +336,7 @@ body {
   font-size: 12px;
 }
 .click-to-show {
-  color: red;
+  color: rgb(153,0,1);
   font-size: 12px;
   text-align: right;
   margin: 0;
