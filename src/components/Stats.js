@@ -76,7 +76,6 @@ function Stats() {
     let player = playerName.split("");
     let playArr = [];
     for (let i = 0; i < player.length; i++) {
-      console.log(player[i]);
       if(player[i] !== "č" && player[i] !== "ć") {
         playArr.push(player[i])
       } else {
@@ -84,12 +83,9 @@ function Stats() {
       } 
     }
     let playerNameDone = playArr.join('')
-    console.log(playArr);
-    console.log(playerName);
     fetch(`http://localhost:3000/player?name=${playerNameDone}`)
       .then((res) => res.json()) 
       .then((data) => {
-        console.log(data);
         store.dispatch(addPlayer(data)); // Dispatch the addPlayer action with the player data
         navigate('/stats/player')
       })
