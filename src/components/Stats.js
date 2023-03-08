@@ -83,7 +83,7 @@ function Stats() {
       } 
     }
     let playerNameDone = playArr.join('')
-    fetch(`http://localhost:3000/player?name=${playerNameDone}`)
+    fetch(`https://nbaexpressbe.onrender.com/player?name=${playerNameDone}`)
       .then((res) => res.json()) 
       .then((data) => {
         store.dispatch(addPlayer(data)); // Dispatch the addPlayer action with the player data
@@ -156,7 +156,7 @@ function Stats() {
               >
                 <td
                   onClick={() => handleNameClick(player.name)}
-                  style={{ color: "blue", whiteSpace: 'nowrap'}}
+                  style={{cursor:'pointer', color: "blue", whiteSpace: 'nowrap'}}
                 >
                   {player.name}
                 </td>

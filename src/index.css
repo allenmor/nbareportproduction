@@ -466,7 +466,10 @@ th {
   align-items: center;
 }
 .player-div img {
+  border: 5px solid rgb(51,51,51);
+  margin-top: 2rem;
   border-radius: 5px;
+  width: 9rem;
 }
 .player-career-table-div{
   width: 95%;
@@ -479,6 +482,37 @@ th {
 }
 .player-table td{
   white-space: nowrap;
+}
+.player-table{
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+}
+.player-table thead {
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+.player-table th,
+.player-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.player-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.player-table tr:hover {
+  /* background-color: #ddd; */
+}
+.player-table th:hover {
+  background-color: black;
+}
+.player-table th:first-child,
+.player-table td:first-child {
+  text-align: center;
 }
 
 /* PLAYERS COMPONENT END */
