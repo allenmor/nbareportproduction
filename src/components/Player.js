@@ -14,8 +14,8 @@ function Player() {
       {player && (
         <div className="player-div">
           <img src={player.playerImage} alt="player" />
-          <p>{player.playerName}</p>
-          <p>
+          <p><b>{player.playerName}</b></p>
+          <p className="player-positon">
             <b>Position: </b>
             {player.positions}
           </p>
