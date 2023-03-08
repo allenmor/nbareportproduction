@@ -14,7 +14,9 @@ function Player() {
       {player && (
         <div className="player-div">
           <img src={player.playerImage} alt="player" />
-          <p><b>{player.playerName}</b></p>
+          <p>
+            <b>{player.playerName}</b>
+          </p>
           <p className="player-positon">
             <b>Position: </b>
             {player.positions}
@@ -65,10 +67,12 @@ function Player() {
                 {player.gameLog.reverse().map((el, i) => {
                   return (
                     <tr key={i}>
-                      <td>{el.season}</td>
-                      <td>{el.age}</td>
-                      <td>{el.team}</td>
-                      <td>{el.league}</td>
+                      <td>{el.age.length > 2 ? el.age : el.season}</td>
+                      <td>{el.age.length > 2 ? el.team : el.age}</td>
+                      <td>{el.age.length > 2 ? '' :el.team}</td>
+                      <td>
+                        {el.league.includes("Did Not") ? "DNP" : el.league}
+                      </td>
                       <td>{el.position}</td>
                       <td>{el.games}</td>
                       <td>{el.gamesStarted}</td>
