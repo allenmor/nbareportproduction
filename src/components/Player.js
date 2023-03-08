@@ -19,7 +19,7 @@ function Player() {
           </p>
           <p className="player-positon">
             <b>Position: </b>
-            {player.positions}
+            {player.positions+' handed'}
           </p>
           <p>
             {" "}
