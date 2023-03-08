@@ -263,7 +263,6 @@ body {
 
 .leaders-div {
   display: flex;
-  align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
@@ -280,6 +279,9 @@ body {
 }
 .points-in-leaders {
   text-align: right;
+}
+.player-leader-name {
+  color: blue;
 }
 .leaders-each-container {
   border: 1px solid lightgray;
@@ -298,7 +300,10 @@ body {
   border: 1px solid black;
   width: 20rem;
   margin: 5px;
-  padding: 10px;
+}
+.leaders-category {
+  background-color: lightgray;
+  margin-top: 0;
 }
 
 .leaders-team-name {
@@ -329,6 +334,15 @@ body {
 .leaders-team-name {
   line-height: 0;
   font-size: 12px;
+}
+.click-to-show {
+  color: red;
+  font-size: 12px;
+  text-align: right;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  user-select: none;
 }
 .leader-h1 {
   padding: 9px;
