@@ -223,6 +223,7 @@ body {
 .standings-table thead {
   background-color: #333;
   color: #fff;
+  cursor: pointer;
 }
 
 .standings-table th,
@@ -237,9 +238,11 @@ body {
 }
 
 .standings-table tr:hover {
-  background-color: #ddd;
+  /* background-color: #ddd; */
 }
-
+.standings-table th:hover {
+  background-color: black;
+}
 .standings-table th:first-child,
 .standings-table td:first-child {
   text-align: center;
@@ -336,7 +339,7 @@ body {
   font-size: 12px;
 }
 .click-to-show {
-  color: rgb(153,0,1);
+  color: rgb(153, 0, 1);
   font-size: 12px;
   text-align: right;
   margin: 0;
@@ -354,7 +357,7 @@ body {
   text-align: center;
 }
 .leaders-points {
-margin-left: auto;
+  margin-left: auto;
 }
 .team-name-h1 {
   font-size: 1.6rem;
@@ -375,7 +378,6 @@ margin-left: auto;
   margin: 0 auto;
   display: block;
 }
-
 
 .search-player-box:focus {
   outline: none;
@@ -438,7 +440,6 @@ margin-left: auto;
 .team-score-divs p {
   font-size: 14px;
   margin: 0;
-  
 }
 .card {
   width: 15rem;
@@ -450,8 +451,31 @@ margin-left: auto;
   width: 100%;
   font-size: 13px;
 }
-.scores-table td,th {
-    text-align: center;
-    padding: 8px;
+.scores-table td,
+th {
+  text-align: center;
+  padding: 8px;
 }
 /* GAMES END */
+
+/* PLAYERS COMPONENT START */
+
+.player-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.player-div img {
+  border-radius: 5px;
+}
+.player-career-table-div{
+  width: 95%;
+  overflow-x: scroll;
+  border-top: 1px solid gray;
+  margin-top: 5rem;
+}
+.table-headers-player td{
+  font-weight: bold;
+}
+
+/* PLAYERS COMPONENT END */

@@ -6,6 +6,7 @@ import Navbars from "./components/Navbars";
 import Lineups from "./components/Lineups";
 import Leaders from "./components/Leaders";
 import Footer from "./components/Footer";
+import Player from "./components/Player";
 
 function App() {
 
@@ -18,7 +19,7 @@ function App() {
         <Route path="/stats" element={<Stats />} />
         <Route path="/lineups" element={<Lineups />} />
         <Route path="/leaders" element={<Leaders />} />
-
+        <Route path="/stats/player" element={<Player />} />
       </Routes>
       <Footer />
     </div> 

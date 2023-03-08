@@ -3,6 +3,7 @@ import { createStore } from 'redux';
 // Define the initial state
 const initialState = {
   data: [],
+  player: null,
 };
 
 // Define the reducer function
@@ -12,6 +13,8 @@ function reducer(state = initialState, action) {
       return { ...state, data: state.data.concat(action.payload) };
     case 'ADD_ESPN_DATA':
       return { ...state, espnData: action.payload };
+    case 'ADD_PLAYER':
+      return { ...state, player: action.payload };
     default:
       return state;
   }

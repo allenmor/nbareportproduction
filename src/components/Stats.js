@@ -1,4 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import store from '../store';
+import { addPlayer } from '../actions';
+
 
 function Stats() {
   const [data, setData] = useState([]);
@@ -6,8 +10,10 @@ function Stats() {
   const [isLoading, setIsLoading] = useState(true);
   const [sortOrders, setSortOrders] = useState({});
   const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate()
 
   useEffect(() => {
+
     fetch("https://nbaexpressbe.onrender.com/playerz")
       .then((res) => res.json())
       .then((data) => {
@@ -15,6 +21,7 @@ function Stats() {
         setIsLoading(false);
       })
       .catch((error) => console.error(error));
+      
   }, []);
 
   const handleRowClick = (index) => {
@@ -22,7 +29,7 @@ function Stats() {
       ...clickedRows,
       [index]: !clickedRows[index],
     });
-  };
+  }; 
 
   function handleThClick(column) {
     setData((prevData) => {
@@ -65,6 +72,30 @@ function Stats() {
   const filteredData = data.filter((player) =>
     player.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+  function handleNameClick(playerName) {
+    let player = playerName.split("");
+    let playArr = [];
+    for (let i = 0; i < player.length; i++) {
+      console.log(player[i]);
+      if(player[i] !== "č" && player[i] !== "ć") {
+        playArr.push(player[i])
+      } else {
+        playArr.push('c')
+      } 
+    }
+    let playerNameDone = playArr.join('')
+    console.log(playArr);
+    console.log(playerName);
+    fetch(`http://localhost:3000/player?name=${playerNameDone}`)
+      .then((res) => res.json()) 
+      .then((data) => {
+        console.log(data);
+        store.dispatch(addPlayer(data)); // Dispatch the addPlayer action with the player data
+        navigate('/stats/player')
+      })
+      .catch((error) => console.error(error));
+  }
+  
 
   return (
     <div className="standings-table-div">
@@ -127,7 +158,12 @@ function Stats() {
                 }}
                 onClick={() => handleRowClick(index)}
               >
-                <td style={{ color: "blue" }}>{player.name}</td>
+                <td
+                  onClick={() => handleNameClick(player.name)}
+                  style={{ color: "blue", whiteSpace: 'nowrap'}}
+                >
+                  {player.name}
+                </td>
                 <td>{player.position}</td>
                 <td>{player.age}</td>
                 <td style={{ color: "blue" }}>{player.team}</td>
