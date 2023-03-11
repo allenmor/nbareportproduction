@@ -7,7 +7,7 @@ export default function LastGames() {
 
   useEffect(() => {
     // Fetch the game schedule data from the server
-    fetch('https://nbaexpressbe.onrender.com/schedule')
+    fetch(process.env.REACT_APP_SCHEDULE)
       .then((response) => response.json())
       .then((data) => {
         setGames(data)
