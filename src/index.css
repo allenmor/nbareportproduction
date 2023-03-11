@@ -303,10 +303,14 @@ body {
   border: 1px solid black;
   width: 20rem;
   margin: 5px;
+  border-radius: 5px;
 }
 .leaders-category {
   background-color: lightgray;
   margin-top: 0;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 
 .leaders-team-name {
@@ -346,6 +350,7 @@ body {
   padding: 0;
   cursor: pointer;
   user-select: none;
+  margin-right: 10px;
 }
 .leader-h1 {
   padding: 9px;
@@ -466,8 +471,7 @@ th {
   align-items: center;
   text-align: center;
 }
-.player-div img {
-  border: 5px solid rgb(51,51,51);
+.player-actual-image {
   margin-top: 2rem;
   border-radius: 5px;
   width: 9rem;
@@ -517,4 +521,6 @@ th {
 }
 
 
+
 /* PLAYERS COMPONENT END */
+
