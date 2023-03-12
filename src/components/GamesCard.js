@@ -5,18 +5,20 @@ import { useNavigate } from "react-router-dom";
 function GamesCard({ game }) {
   const navigate = useNavigate()
   const data = { link: game };
-  function handleTeamClick() {
+  function handleBoxscoreClick() {
     navigate('/boxscore', { state: { data: data } });
   }
-  
+  function handleTeamClick(team) {
+    navigate('/lineups', { state: { teamSelect:team } })
+  }
   return (
     <div className="card">
       <div className="team-score-divs">
-        <p onClick={handleTeamClick} style={{color: 'blue', fontWeight: +game.awayScore > +game.homeScore ? 'bold': 'normal'}}>{game.awayTeamFull}</p>
+        <p onClick={() => handleTeamClick(game.awayTeamFull)} className='last-game-team-name' style={{color: 'blue', fontWeight: +game.awayScore > +game.homeScore ? 'bold': 'normal'}}>{game.awayTeamFull}</p>
         <p>{game.awayScore}</p>
       </div>
       <div className="team-score-divs">
-        <p onClick={handleTeamClick} style={{color: 'blue'}}>{game.homeTeamFull}</p>
+        <p onClick={() => handleTeamClick(game.homeTeamFull)} className="last-game-team-name" style={{color: 'blue'}}>{game.homeTeamFull}</p>
         <p>{game.homeScore}</p>
       </div>
       <table className="scores-table">
@@ -46,6 +48,7 @@ function GamesCard({ game }) {
           </tr>
         </tbody>
       </table>
+      <button onClick={handleBoxscoreClick} className="boxscore-button">Boxscore</button>
     </div>
   );
 }

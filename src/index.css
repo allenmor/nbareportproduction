@@ -451,6 +451,9 @@ body {
   margin: 10px;
   border: 1px dotted gray;
   padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .scores-table {
   width: 100%;
@@ -529,8 +532,74 @@ th {
   width: 97%;
   overflow-x: scroll;
 }
+.boxscore-tables {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.boxscore-tables th,
 .boxscore-tables td {
-  white-space: nowrap;
+  padding: 8px;
+  text-align: left;
+}
+
+.boxscore-tables th {
+  background-color: #444;
+  color: #fff;
+  font-weight: bold;
+}
+
+.boxscore-tables tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.boxscore-tables tr:hover {
+  background-color: #ddd;
+}
+
+.boxscore-tables td {
+  border: 1px solid #ddd;
+}
+.boxscore-divs td:first-child {
+  position: sticky;
+  left: 0;
+  background-color: #fff;
+  z-index: 1;
+  border-right: 1px solid #ddd;
 }
 
 /* BOX SCORE START  */
+
+
+/* LAST GAMES  */
+
+.last-game-team-name {
+  cursor:'pointer'
+}
+
+.last-game-team-name:hover {
+  background-color: #FFFF00;
+  cursor: pointer;
+}
+.boxscore-button {
+  display: inline-block;
+  background-color: #0077c0;
+  color: #fff;
+  font-size: 7px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.boxscore-button:hover {
+  background-color: #005da3;
+  cursor: pointer;
+}
+

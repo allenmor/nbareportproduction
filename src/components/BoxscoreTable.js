@@ -3,7 +3,7 @@ import React from 'react'
 function BoxscoreTable({data}) {
   return (
     <tr>
-    <td>{data.player}</td>
+    <td style={{whiteSpace: 'nowrap'}}>{data.player}</td>
    {data.mp ?
        <>
    <td>{data.mp}</td>

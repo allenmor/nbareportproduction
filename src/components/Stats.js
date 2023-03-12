@@ -108,13 +108,16 @@ function Stats() {
       ) : (
         ""
       )}
+      <div>
+
+      </div>
       {isLoading ? (
         <p>Loading...</p>
       ) : (
         <table className="standings-table">
           <thead>
             <tr>
-              <th>Player</th>
+              <th>Player</th> 
               <th>Pos</th>
               <th onClick={() => handleThClick("age")}>Age</th>
               <th>Tm</th>
