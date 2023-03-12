@@ -22,6 +22,7 @@ function Stats() {
       })
       .catch((error) => console.error(error));
       
+      
   }, []);
 
   const handleRowClick = (index) => {

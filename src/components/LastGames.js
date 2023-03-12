@@ -15,12 +15,14 @@ export default function LastGames() {
       })
       .catch((error) => console.error(error));
   }, []);
-
+ 
   return (
+    <>
     <div className='games-div'>
         {!isLoading ? games.map((el, i) => {
             return <GamesCard key={i} game={el}/>
         }): <p>Loading Games...</p>}
     </div>
+    </>
   );
 }
