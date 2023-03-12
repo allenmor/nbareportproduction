@@ -15,6 +15,7 @@ export default function LastGames() {
       })
       .catch((error) => console.error(error));
   }, []);
+
  
   return (
     <>

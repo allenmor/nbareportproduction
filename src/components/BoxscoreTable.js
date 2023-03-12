@@ -1,9 +1,34 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
+import { addPlayer } from '../actions';
+import store from '../store';
+
 
 function BoxscoreTable({data}) {
+    const navigate = useNavigate()
+    function handleNameClick(playerName) {
+        let player = playerName.split("");
+        let playArr = [];
+        for (let i = 0; i < player.length; i++) {
+          if(player[i] !== "č" && player[i] !== "ć") {
+            playArr.push(player[i])
+          } else {
+            playArr.push('c')
+          } 
+        }
+        let playerNameDone = playArr.join('')
+        fetch(`https://nbaexpressbe.onrender.com/player?name=${playerNameDone}`)
+          .then((res) => res.json()) 
+          .then((data) => {
+            store.dispatch(addPlayer(data)); // Dispatch the addPlayer action with the player data
+            navigate('/stats/player')
+          })
+          .catch((error) => console.error(error));
+      }
+      
   return (
     <tr>
-    <td style={{whiteSpace: 'nowrap'}}>{data.player}</td>
+    <td onClick={() => handleNameClick(data.player)} style={{whiteSpace: 'nowrap', color:'blue', cursor: 'pointer'}}>{data.player}</td>
    {data.mp ?
        <>
    <td>{data.mp}</td>

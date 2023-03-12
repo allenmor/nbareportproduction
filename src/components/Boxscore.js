@@ -10,7 +10,6 @@ export default function Boxscore() {
   let url = data.link.link;
 
   const [boxscore, setBoxscore] = useState([]);
-  console.log(data.link);
 
   const [home, setHome] = useState([]);
   const [away, setAway] = useState([]);
