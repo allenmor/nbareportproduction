@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 const Nav = styled.nav`
   position: sticky;
   top: 0;
+  z-index: 2;
   height: 55px;
   border-bottom: 2px solid #f1f1f1;
   padding: 0 20px;

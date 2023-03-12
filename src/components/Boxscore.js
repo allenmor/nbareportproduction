@@ -10,6 +10,7 @@ export default function Boxscore() {
   let url = data.link.link;
 
   const [boxscore, setBoxscore] = useState([]);
+  console.log(data.link);
 
   const [home, setHome] = useState([]);
   const [away, setAway] = useState([]);
@@ -227,7 +228,7 @@ export default function Boxscore() {
 
   return (
     <div>
-      <div>
+      <div className="quarter-btn-div">
         <button onClick={() => handleButtonClick("game")}>Game</button>
         <button onClick={() => handleButtonClick("q1")}>Q1</button>
         <button onClick={() => handleButtonClick("q2")}>Q2</button>
@@ -237,7 +238,7 @@ export default function Boxscore() {
         <button onClick={() => handleButtonClick("h2")}>H2</button>
       </div>
       <div className="boxscore-divs">
-        <h1>Home</h1>
+        <h1>{data.link.homeTeamFull}</h1>
         <table className="boxscore-tables">
           <thead>
             <tr>
@@ -272,7 +273,7 @@ export default function Boxscore() {
         </table>
       </div>
       <div className="boxscore-divs">
-        <h1>Away</h1>
+        <h1>{data.link.awayTeamFull}</h1>
         <table className="boxscore-tables">
           <thead>
             <tr>
