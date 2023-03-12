@@ -27,7 +27,7 @@ function BoxscoreTable({data}) {
     <td>{data.pts}</td>
     <td>{data.plus_minus}</td>
    </> 
-    : <td>Did Not Play</td>}
+    : <td>Out</td>}
   </tr>
   )
 }

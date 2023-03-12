@@ -522,5 +522,15 @@ th {
 
 
 
+
 /* PLAYERS COMPONENT END */
 
+.boxscore-divs {
+  width: 97%;
+  overflow-x: scroll;
+}
+.boxscore-tables td {
+  white-space: nowrap;
+}
+
+/* BOX SCORE START  */

@@ -236,9 +236,9 @@ export default function Boxscore() {
         <button onClick={() => handleButtonClick("q4")}>Q4</button>
         <button onClick={() => handleButtonClick("h2")}>H2</button>
       </div>
-      <div>
+      <div className="boxscore-divs">
         <h1>Home</h1>
-        <table>
+        <table className="boxscore-tables">
           <thead>
             <tr>
               <th>Player</th>
@@ -271,9 +271,9 @@ export default function Boxscore() {
           </tbody>
         </table>
       </div>
-      <div>
+      <div className="boxscore-divs">
         <h1>Away</h1>
-        <table>
+        <table className="boxscore-tables">
           <thead>
             <tr>
               <th>Player</th>
