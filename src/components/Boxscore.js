@@ -12,7 +12,7 @@ export default function Boxscore() {
   const [home, setHome] = useState([]);
   const [away, setAway] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:3000/boxscores?url=${url}`)
+    fetch(`https://nbaexpressbe.onrender.com/boxscores?url=${url}`)
       .then((res) => res.json())
       .then((data) => {
         setBoxscore(data);
