@@ -279,6 +279,9 @@ export default function Boxscore() {
               <th>FG</th>
               <th>FGA</th>
               <th>FG%</th>
+              <th style={{ backgroundColor: 'rgba(0, 0, 255, 0.7)' }}>PTS</th>
+              <th style={{ backgroundColor: 'rgba(0, 0, 255, 0.7)' }}>REB</th>
+              <th style={{ backgroundColor: 'rgba(0, 0, 255, 0.7)' }}>AST</th>
               <th>3P</th>
               <th>3PA</th>
               <th>3P%</th>
@@ -287,13 +290,10 @@ export default function Boxscore() {
               <th>FT%</th>
               <th>ORB</th>
               <th>DRB</th>
-              <th>TRB</th>
-              <th>AST</th>
               <th>STL</th>
               <th>BLK</th>
               <th>TOV</th>
               <th>PF</th>
-              <th>PTS</th>
               <th>+/-</th>
             </tr>
           </thead>
@@ -314,6 +314,9 @@ export default function Boxscore() {
               <th>FG</th>
               <th>FGA</th>
               <th>FG%</th>
+              <th style={{ backgroundColor: 'rgba(0, 0, 255, 0.7)' }}>PTS</th>
+              <th style={{ backgroundColor: 'rgba(0, 0, 255, 0.7)' }}>REB</th>
+              <th style={{ backgroundColor: 'rgba(0, 0, 255, 0.7)' }}>AST</th>
               <th>3P</th>
               <th>3PA</th>
               <th>3P%</th>
@@ -322,13 +325,10 @@ export default function Boxscore() {
               <th>FT%</th>
               <th>ORB</th>
               <th>DRB</th>
-              <th>TRB</th>
-              <th>AST</th>
               <th>STL</th>
               <th>BLK</th>
               <th>TOV</th>
               <th>PF</th>
-              <th>PTS</th>
               <th>+/-</th>
             </tr>
           </thead>

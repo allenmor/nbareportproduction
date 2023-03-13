@@ -124,7 +124,9 @@ function Stats() {
               <th onClick={() => handleThClick("gamesPlayed")}>G</th>
               <th onClick={() => handleThClick("gamesStarted")}>GS</th>
               <th onClick={() => handleThClick("minutesPerGame")}>MP</th>
-              <th onClick={() => handleThClick("pointsPerGame")}>Pts</th>
+              <th style={{ backgroundColor: 'rgba(0, 0, 255, 0.7)' }} onClick={() => handleThClick("pointsPerGame")}>Pts</th>
+              <th style={{ backgroundColor: 'rgba(0, 0, 255, 0.7)' }} onClick={() => handleThClick("totalRebounds")}>TRB</th>
+              <th style={{ backgroundColor: 'rgba(0, 0, 255, 0.7)' }} onClick={() => handleThClick("assists")}>AST</th>
               <th onClick={() => handleThClick("fieldGoalsMade")}>FG</th>
               <th onClick={() => handleThClick("fieldGoalsAttempted")}>FGA</th>
               <th onClick={() => handleThClick("fieldGoalPercentage")}>FG%</th>
@@ -140,8 +142,6 @@ function Stats() {
               <th onClick={() => handleThClick("freeThrowPercentage")}>FT%</th>
               <th onClick={() => handleThClick("offensiveRebounds")}>ORB</th>
               <th onClick={() => handleThClick("defensiveRebounds")}>DRB</th>
-              <th onClick={() => handleThClick("totalRebounds")}>TRB</th>
-              <th onClick={() => handleThClick("assists")}>AST</th>
               <th onClick={() => handleThClick("steals")}>STL</th>
               <th onClick={() => handleThClick("blocks")}>BLK</th>
               <th onClick={() => handleThClick("turnovers")}>TOV</th>
@@ -170,7 +170,13 @@ function Stats() {
                 <td>{player.gamesPlayed}</td>
                 <td>{player.gamesStarted}</td>
                 <td>{player.minutesPerGame}</td>
-                <td style={{ color: "blue" }}>{player.pointsPerGame}</td>
+                <td  style={{ backgroundColor: 'rgba(0, 0, 255, 0.2)', color: 'black', fontWeight: 'bold' }}>{player.pointsPerGame}</td>
+                <td style={{ backgroundColor: 'rgba(0, 0, 255, 0.2)', color: 'black', fontWeight: 'bold' }}>
+                  {(
+                    +player.defensiveRebounds + +player.offensiveRebounds
+                  ).toFixed(1)}
+                </td>
+                <td style={{ backgroundColor: 'rgba(0, 0, 255, 0.2)', color: 'black', fontWeight: 'bold' }}>{player.assists}</td>
                 <td>{player.fieldGoalsMade}</td>
                 <td>{player.fieldGoalsAttempted}</td>
                 <td>{player["freeThrowPercentage"]}</td>
@@ -184,12 +190,6 @@ function Stats() {
                 <td>{player["freeThrowPercentage"]}</td>
                 <td>{player.offensiveRebounds}</td>
                 <td>{player.defensiveRebounds}</td>
-                <td>
-                  {(
-                    +player.defensiveRebounds + +player.offensiveRebounds
-                  ).toFixed(1)}
-                </td>
-                <td>{player.assists}</td>
                 <td>{player.steals}</td>
                 <td>{player.blocks}</td>
                 <td>{player.turnovers}</td>

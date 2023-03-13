@@ -39,6 +39,9 @@ function BoxscoreTable({ data }) {
           <td>{data.fg || "0"}</td>
           <td>{data.fga || "0"}</td>
           <td>{data.fg_pct || "0"}</td>
+          <td style={{ backgroundColor: 'rgba(0, 0, 255, 0.2)', color: 'black', fontWeight: 'bold' }}>{data.pts || "0"}</td>
+          <td style={{ backgroundColor: 'rgba(0, 0, 255, 0.2)', color: 'black', fontWeight: 'bold' }}>{data.trb || "0"}</td>
+          <td style={{ backgroundColor: 'rgba(0, 0, 255, 0.2)', color: 'black', fontWeight: 'bold' }}>{data.ast || "0"}</td>
           <td>{data.fg3 || "0"}</td>
           <td>{data.fg3a || "0"}</td>
           <td>{data.fg3_pct || "0"}</td>
@@ -47,13 +50,10 @@ function BoxscoreTable({ data }) {
           <td>{data.ft_pct || "0"}</td>
           <td>{data.orb || "0"}</td>
           <td>{data.drb || "0"}</td>
-          <td>{data.trb || "0"}</td>
-          <td>{data.ast || "0"}</td>
           <td>{data.stl || "0"}</td>
           <td>{data.blk || "0"}</td>
           <td>{data.tov || "0"}</td>
           <td>{data.pf || "0"}</td>
-          <td>{data.pts || "0"}</td>
           <td>{data.plus_minus || "0"}</td>
         </>
       ) : (
