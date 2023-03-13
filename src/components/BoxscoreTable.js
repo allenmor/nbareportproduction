@@ -31,26 +31,26 @@ function BoxscoreTable({data}) {
     <td onClick={() => handleNameClick(data.player)} style={{whiteSpace: 'nowrap', color:'blue', cursor: 'pointer'}}>{data.player}</td>
    {data.mp ?
        <>
-   <td>{data.mp}</td>
-    <td>{data.fg}</td>
-    <td>{data.fga}</td>
-    <td>{data.fg_pct}</td>
-    <td>{data.fg3}</td>
-    <td>{data.fg3a}</td>
-    <td>{data.fg3_pct}</td>
-    <td>{data.ft}</td>
-    <td>{data.fta}</td>
-    <td>{data.ft_pct}</td>
-    <td>{data.orb}</td>
-    <td>{data.drb}</td>
-    <td>{data.trb}</td>
-    <td>{data.ast}</td>
-    <td>{data.stl}</td>
-    <td>{data.blk}</td>
-    <td>{data.tov}</td>
-    <td>{data.pf}</td>
-    <td>{data.pts}</td>
-    <td>{data.plus_minus}</td>
+     <td>{data.mp || "0"}</td>
+<td>{data.fg || "0"}</td>
+<td>{data.fga || "0"}</td>
+<td>{data.fg_pct || "0"}</td>
+<td>{data.fg3 || "0"}</td>
+<td>{data.fg3a || "0"}</td>
+<td>{data.fg3_pct || "0"}</td>
+<td>{data.ft || "0"}</td>
+<td>{data.fta || "0"}</td>
+<td>{data.ft_pct || "0"}</td>
+<td>{data.orb || "0"}</td>
+<td>{data.drb || "0"}</td>
+<td>{data.trb || "0"}</td>
+<td>{data.ast || "0"}</td>
+<td>{data.stl || "0"}</td>
+<td>{data.blk || "0"}</td>
+<td>{data.tov || "0"}</td>
+<td>{data.pf || "0"}</td>
+<td>{data.pts || "0"}</td>
+<td>{data.plus_minus || "0"}</td>
    </> 
     : <td>Out</td>}
   </tr>
