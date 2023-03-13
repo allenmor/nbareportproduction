@@ -10,7 +10,6 @@ export default function Boxscore() {
   let url = data.link.link;
 
   const [boxscore, setBoxscore] = useState([]);
-
   const [home, setHome] = useState([]);
   const [away, setAway] = useState([]);
   useEffect(() => {
@@ -224,7 +223,40 @@ export default function Boxscore() {
         break;
     }
   }
-
+  const teamNames = {
+    "ATL": "Atlanta Hawks",
+    "BRK": "Brooklyn Nets",
+    "BOS": "Boston Celtics",
+    "CHO": "Charlotte Hornets",
+    "CHI": "Chicago Bulls",
+    "CLE": "Cleveland Cavaliers",
+    "DAL": "Dallas Mavericks",
+    "DEN": "Denver Nuggets",
+    "DET": "Detroit Pistons",
+    "GSW": "Golden State Warriors",
+    "HOU": "Houston Rockets",
+    "IND": "Indiana Pacers",
+    "LAC": "Los Angeles Clippers",
+    "LAL": "Los Angeles Lakers",
+    "MEM": "Memphis Grizzlies",
+    "MIA": "Miami Heat",
+    "MIL": "Milwaukee Bucks",
+    "MIN": "Minnesota Timberwolves",
+    "NOP": "New Orleans Pelicans",
+    "NYK": "New York Knicks",
+    "OKC": "Oklahoma City Thunder",
+    "ORL": "Orlando Magic",
+    "PHI": "Philadelphia 76ers",
+    "PHX": "Phoenix Suns",
+    "POR": "Portland Trail Blazers",
+    "SAC": "Sacramento Kings",
+    "SAS": "San Antonio Spurs",
+    "TOR": "Toronto Raptors",
+    "UTA": "Utah Jazz",
+    "WAS": "Washington Wizards"
+  };
+  console.log(data.link.scores[0][4] + data.link.scores[0][5] + data.link.scores[0][6]);
+  console.log(data.link.scores[0][0] + data.link.scores[0][1] + data.link.scores[0][2]);
   return (
     <div>
       <div className="quarter-btn-div">
@@ -237,7 +269,7 @@ export default function Boxscore() {
         <button onClick={() => handleButtonClick("h2")}>H2</button>
       </div>
       <div className="boxscore-divs">
-        <h1>{data.link.homeTeamFull}</h1>
+      <h1>{teamNames[data.link.scores[0].substring(4)]}</h1>
         <table className="boxscore-tables">
           <thead>
             <tr>
@@ -272,7 +304,7 @@ export default function Boxscore() {
         </table>
       </div>
       <div className="boxscore-divs">
-        <h1>{data.link.awayTeamFull}</h1>
+      <h1>{teamNames[data.link.scores[0].substring(0, 3)]}</h1>
         <table className="boxscore-tables">
           <thead>
             <tr>
