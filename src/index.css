@@ -631,3 +631,18 @@ th {
   background-color: #005da3;
   cursor: pointer;
 }
+.table-div {
+  overflow-x: scroll;
+}
+.table-div td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background-color: rgb(246,246,246);
+}
+.table-div th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background-color: rgb(51,51,51);
+}

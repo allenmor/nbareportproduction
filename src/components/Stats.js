@@ -108,9 +108,8 @@ function Stats() {
       ) : (
         ""
       )}
-      <div>
+      <div className="table-div">
 
-      </div>
       {isLoading ? (
         <p>Loading...</p>
       ) : (
@@ -198,6 +197,7 @@ function Stats() {
           </tbody>
         </table>
       )}
+      </div>
     </div>
   );
 }
