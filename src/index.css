@@ -609,7 +609,7 @@ th {
 }
 
 .quarter-btn-div button {
-  width: calc(95% / 7);
+  width: calc(95% / 5);
   padding: 4px 8px;
   border: none;
   border-radius: 5px;

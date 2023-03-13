@@ -8,12 +8,11 @@ export default function Boxscore() {
   const data = location.state.data;
 
   let url = data.link.link;
-
   const [boxscore, setBoxscore] = useState([]);
   const [home, setHome] = useState([]);
   const [away, setAway] = useState([]);
   useEffect(() => {
-    fetch(`https://nbaexpressbe.onrender.com/boxscores?url=${url}`)
+    fetch(`http://localhost:3000/boxscores?url=${url}`)
       .then((res) => res.json())
       .then((data) => {
         setBoxscore(data);
@@ -188,41 +187,45 @@ export default function Boxscore() {
     }
   }
 
+  function sortArray(array) {
+    return array.sort((a, b) => parseInt(b.mp) - parseInt(a.mp));
+  }
 
   function handleButtonClick(button) {
     switch (button) {
       case "game":
-        setHome(homeFull);
-        setAway(awayFull);
+        setHome(sortArray(homeFull));
+        setAway(sortArray(awayFull));
         break;
       case "q1":
-        setHome(homeFirst);
-        setAway(awayFirst);
+        setHome(sortArray(homeFirst));
+        setAway(sortArray(awayFirst));
         break;
       case "q2":
-        setHome(homeSecond);
-        setAway(awaySecond);
+        setHome(sortArray(homeSecond));
+        setAway(sortArray(awaySecond));
         break;
       case "h1":
-        setHome(homeHalf);
-        setAway(awayHalf);
+        setHome(sortArray(homeHalf));
+        setAway(sortArray(awayHalf));
         break;
       case "q3":
-        setHome(homeThird);
-        setAway(awayThird);
+        setHome(sortArray(homeThird));
+        setAway(sortArray(awayThird));
         break;
       case "q4":
-        setHome(homeFourth);
-        setAway(awayFourth);
+        setHome(sortArray(homeFourth));
+        setAway(sortArray(awayFourth));
         break;
       case "h2":
-        setHome(homeSecondHalf);
-        setAway(awaySecondHalf);
+        setHome(sortArray(homeSecondHalf));
+        setAway(sortArray(awaySecondHalf));
         break;
       default:
         break;
     }
   }
+  
   const teamNames = {
     "ATL": "Atlanta Hawks",
     "BRK": "Brooklyn Nets",
@@ -255,18 +258,16 @@ export default function Boxscore() {
     "UTA": "Utah Jazz",
     "WAS": "Washington Wizards"
   };
-  console.log(data.link.scores[0][4] + data.link.scores[0][5] + data.link.scores[0][6]);
-  console.log(data.link.scores[0][0] + data.link.scores[0][1] + data.link.scores[0][2]);
+//   console.log(data.link.scores[0][4] + data.link.scores[0][5] + data.link.scores[0][6]);
+//   console.log(data.link.scores[0][0] + data.link.scores[0][1] + data.link.scores[0][2]);
   return (
     <div>
       <div className="quarter-btn-div">
         <button onClick={() => handleButtonClick("game")}>Game</button>
         <button onClick={() => handleButtonClick("q1")}>Q1</button>
         <button onClick={() => handleButtonClick("q2")}>Q2</button>
-        <button onClick={() => handleButtonClick("h1")}>H1</button>
         <button onClick={() => handleButtonClick("q3")}>Q3</button>
         <button onClick={() => handleButtonClick("q4")}>Q4</button>
-        <button onClick={() => handleButtonClick("h2")}>H2</button>
       </div>
       <div className="boxscore-divs">
       <h1>{teamNames[data.link.scores[0].substring(4)]}</h1>
