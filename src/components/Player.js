@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useMemo } from "react";
+import emptyperson from '../images/emptyplayer.jpeg'
 
 function Player() {
   const player = useSelector((state) => state.player);
@@ -65,7 +66,7 @@ function Player() {
           <img 
           className="player-actual-image"
             style={{ border: `5px solid ${borderColor}` }}
-            src={player.playerImage}
+            src={player.playerImage ? player.playerImage: emptyperson}
             alt="player"
           />
           <p>
