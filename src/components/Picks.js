@@ -54,7 +54,7 @@ function Picks() {
                   <p>{el.awayTeam}</p>
                 <p>{el.spread}</p>
                 </div>
-                <p style={{margin: '0.5rem'}}>{el.expertOU}</p>
+                <p className={el.expertOU[0] === 'O' ? "experto": 'expertu' } style={{margin: '0.5rem'}}>{el.expertOU}</p>
               </div>
             </div>
           ) : (
