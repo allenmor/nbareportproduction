@@ -32,8 +32,9 @@ function Standings() {
     navigate('/lineups', { state: { teamSelect:team } })
   }
   return (
-    <div className="standings-table-div">
+    <>
       <h1 className='team-name-h1'>2022-23 NBA Standings</h1>
+    <div className="standings-table-div">
       {isLoading ? (
         <p>Loading...</p>
       ) : (
@@ -81,6 +82,7 @@ function Standings() {
         </table>
       )}
     </div>
+    </>
   );
 }
 
