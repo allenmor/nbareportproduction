@@ -10,7 +10,11 @@ const Ul = styled.ul`
   user-select: none;
   li {
     padding: 18px 10px;
-    color: white
+    color:white;
+  }
+  li.active {
+    background-color: white;
+    color: black;
   }
   @media (max-width: 768px) {
     flex-flow: column nowrap;
@@ -29,33 +33,38 @@ const Ul = styled.ul`
   }
 `;
 
-
 function RightNav({ open, onClose }) {
   const navigate = useNavigate();
 
-  function handleLinkClick(path) {
+  function handleLinkClick(path, event) {
     // Navigate to the path and close the navbar
     navigate(path);
     onClose();
+
+    // Add the active class to the clicked li element
+    const lis = event.currentTarget.parentNode.querySelectorAll('li');
+    lis.forEach(li => li.classList.remove('active'));
+    event.currentTarget.classList.add('active');
   }
 
-  function handleHomeClick() {
-    handleLinkClick('/');
+  function handleHomeClick(event) {
+    handleLinkClick('/', event);
   }
 
-  function handleStandingsClick() {
-    handleLinkClick('/standings');
+  function handleStandingsClick(event) {
+    handleLinkClick('/standings', event);
   }
 
-  function handleStatsClick() {
-    handleLinkClick('/stats');
+  function handleStatsClick(event) {
+    handleLinkClick('/stats', event);
   }
 
-  function handleLeadersClick() {
-    handleLinkClick('/leaders');
+  function handleLeadersClick(event) {
+    handleLinkClick('/leaders', event);
   }
-  function handlePicksClick() {
-    handleLinkClick('/picks')
+
+  function handlePicksClick(event) {
+    handleLinkClick('/picks', event);
   }
 
   return (

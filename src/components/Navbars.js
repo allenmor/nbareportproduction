@@ -1,4 +1,3 @@
-
 import React from "react";
 import styled from "styled-components";
 import Burger from "./Burger";
@@ -24,19 +23,23 @@ const Nav = styled.nav`
   }
 `;
 
-
 function Navbars() {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   function handleNbaReportClick() {
-    navigate('/')
+    // Navigate to the home page and remove the active class from all li elements
+    navigate("/");
+    const lis = document.querySelectorAll("li");
+    lis.forEach((li) => li.classList.remove("active"));
   }
-  return React.createElement(
-    Nav,
-    null,
-    React.createElement("div", { className: "logo", onClick: handleNbaReportClick }, "NBA Report"),
-    React.createElement(Burger, null)
+
+  return (
+    <Nav>
+      <div className="logo" onClick={handleNbaReportClick}>
+        NBA Report
+      </div>
+      <Burger />
+    </Nav>
   );
 }
 

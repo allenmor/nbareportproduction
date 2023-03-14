@@ -6,7 +6,6 @@ import BoxscoreTable from "./BoxscoreTable";
 export default function Boxscore() {
   const location = useLocation();
   const data = location.state.data;
-
   let url = data.link.link;
   const [boxscore, setBoxscore] = useState([]);
   const [home, setHome] = useState([]);
