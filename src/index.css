@@ -134,25 +134,28 @@ body {
   padding: 0.3rem 1rem;
   font-size: 0.5rem;
   margin-left: 10px;
-  font-weight: bold;
+  font-weight: normal; /* change from bold to normal /
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
+  color: #007bff; / change from white to blue /
+  background-color: transparent; / change from blue to transparent /
+  border: 1px solid #007bff; / add border */
   border-radius: 0.25rem;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
-}
-
-.read-btn:hover {
-  background-color: #0062cc;
-}
-
-.read-btn:active {
+  }
+  
+  .read-btn:hover {
+  background-color: #007bff;
+  color: #fff; /* change text color to white on hover */
+  }
+  
+  .read-btn:active {
   transform: translateY(1px);
-}
+  }
+  
+  
 .description {
   margin-left: 0.5rem;
 }
@@ -438,35 +441,84 @@ body {
   overflow-x: scroll;
   display: flex;
   align-items: center;
-  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 10px;
+  gap: 10px;
+  scrollbar-width: none;
 }
+
+.games-div::-webkit-scrollbar {
+  display: none;
+}
+
 .team-score-divs {
   display: flex;
-  width: 12rem;
   justify-content: space-between;
+  align-items: center;
+  margin: 0 5px;
+  padding: 5px;
+  max-width: 10rem;
 }
+
 .team-score-divs p {
   font-size: 14px;
   margin: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 8rem;
+  padding-left: none;
 }
+
 .card {
-  width: 15rem;
-  margin: 10px;
-  border: 1px dotted gray;
-  padding: 5px;
+  width: calc(50% - 10px);
+  margin: 7px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 9px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  transition: all 0.2s ease-in-out;
 }
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
 .scores-table {
   width: 100%;
-  font-size: 13px;
+  font-size: 14px;
+  margin-top: 10px;
+  border-collapse: collapse;
 }
+
 .scores-table td,
 th {
   text-align: center;
   padding: 8px;
+  border: 1px solid #ccc;
 }
+
+.boxscore-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.last-game-team-name:hover {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+
 /* GAMES END */
 
 /* PLAYERS COMPONENT START */
@@ -814,7 +866,7 @@ th {
 
 .current-news {
   font-family: 'Roboto', sans-serif;
-  font-size: 2.5rem;
+  font-size: 2rem;
   text-align: center;
   color: #333;
   margin-top: 1rem;

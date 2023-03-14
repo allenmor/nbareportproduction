@@ -10,7 +10,7 @@ function NewsContainer() {
     <>
       <div className="newsheader-pic">
         <LastGames />
-        <h1 className="current-news">Latest News</h1>
+        <h1 className="current-news">Latest NBA News</h1>
         <NewsPics />
         <div className="news-container">
           <RealGm />
