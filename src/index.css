@@ -805,3 +805,29 @@ th {
   font-weight: bold;
   margin: 0;
 }
+.picks-top-header {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.current-news {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  color: #333;
+  margin-top: 1rem;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+.team-name-h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.9rem;
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}

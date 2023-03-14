@@ -17,7 +17,7 @@ function Picks() {
   }, []);
   return (
     <div>
-      <h1>NBA Expert Picks</h1>
+      <h1 className="picks-top-header">NBA Expert Picks</h1>
       <div className="picks-pct-div">
         <p>Our Experts</p>
         <p>
