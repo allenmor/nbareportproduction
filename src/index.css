@@ -227,6 +227,9 @@ body {
   color: #fff;
   cursor: pointer;
 }
+.standings-table td {
+  font-size: 12px;
+}
 
 .standings-table th,
 .standings-table td {
@@ -533,6 +536,7 @@ th {
 .boxscore-divs {
   width: 97%;
   overflow-x: scroll;
+  font-size: 12px;
 }
 .boxscore-tables {
   border-collapse: collapse;
@@ -645,4 +649,153 @@ th {
   left: 0;
   z-index: 1;
   background-color: rgb(51,51,51);
+}
+
+
+/* .picks-pct-div {
+  background-color: rgb(4,14,39);
+  color: white;
+  display: flex;
+  justify-content: space-around;
+}
+
+.picks-pct-div p {
+  text-align: center;
+}
+.picks-header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.expert-picks-div {
+  width: 40%;
+}
+.game-info {
+  width: 60%;
+  border-right: 1px solid;
+}
+
+.each-pick {
+  border: 1px solid black;
+  border-bottom: 0;
+}
+
+.top-each-pick {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.top-each-pick img {
+  width: 2rem;
+}
+.inside-picks-div{
+  margin: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.inside-picks-div p {
+  margin: 0.5rem;
+}
+
+.inside2-picks-div p{
+  margin: 0.5rem;
+}
+.expert-table-headers {
+  display: flex;
+  background: gray;
+  justify-content: space-between;
+  color: white;
+}
+.expert-table-headers p {
+  font-weight: bold;
+  margin: 1rem;
+} */
+.picks-pct-div {
+  background-color: #0C2340;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+.picks-pct-div p {
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 0;
+}
+
+.picks-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #14213D;
+  color: white;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.picks-header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.expert-picks-div {
+  width: 40%;
+  padding: 1rem;
+}
+
+.game-info {
+  width: 60%;
+  border-right: 1px solid #dee2e6;
+  padding: 1rem;
+}
+
+.each-pick {
+  border: 1px solid #dee2e6;
+  border-bottom: 0;
+}
+
+.top-each-pick {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-each-pick img {
+  width: 2.5rem;
+}
+
+.inside-picks-div {
+  display: flex;
+  align-items: center;
+  border-right: 1px solid;
+  width: 58%;
+}
+
+.inside-picks-div p {
+  margin: 0.5rem;
+  font-size: 1rem;
+}
+
+.inside2-picks-div p {
+  margin: 0.5rem;
+  font-size: 1rem;
+}
+
+.expert-table-headers {
+  display: flex;
+  background: #6C757D;
+  justify-content: space-between;
+  color: white;
+  padding: 1rem;
+}
+
+.expert-table-headers p {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
 }

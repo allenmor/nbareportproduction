@@ -29,7 +29,7 @@ function BoxscoreTable({ data }) {
     <tr>
       <td
         onClick={() => handleNameClick(data.player)}
-        style={{ whiteSpace: "nowrap", color: "blue", cursor: "pointer" }}
+        style={{ whiteSpace: "nowrap", color: "blue", cursor: "pointer"  }}
       >
         {data.player}
       </td>

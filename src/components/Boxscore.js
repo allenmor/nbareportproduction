@@ -274,7 +274,7 @@ export default function Boxscore() {
         <table className="boxscore-tables">
           <thead>
             <tr>
-              <th>Player</th>
+              <th style={{position: 'sticky', left: '0', backgroundColor: 'rgb(68,68,68)', zIndex: '1'}}>Player</th>
               <th>MP</th>
               <th>FG</th>
               <th>FGA</th>

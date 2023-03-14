@@ -54,6 +54,9 @@ function RightNav({ open, onClose }) {
   function handleLeadersClick() {
     handleLinkClick('/leaders');
   }
+  function handlePicksClick() {
+    handleLinkClick('/picks')
+  }
 
   return (
     <Ul open={open} onClick={onClose}>
@@ -61,6 +64,7 @@ function RightNav({ open, onClose }) {
       <li onClick={handleStandingsClick}>Standings</li>
       <li onClick={handleStatsClick}>Stats</li>
       <li onClick={handleLeadersClick}>Leaders</li>
+      <li onClick={handlePicksClick}>Picks</li>
     </Ul>
   );
 }

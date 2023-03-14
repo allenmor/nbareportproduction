@@ -8,6 +8,7 @@ import Leaders from "./components/Leaders";
 import Footer from "./components/Footer";
 import Player from "./components/Player";
 import Boxscore from "./components/Boxscore";
+import Picks from "./components/Picks";
 
 function setCookie(name, value, days) {
   var expires = "";
@@ -32,6 +33,7 @@ function App() {
         <Route path="/leaders" element={<Leaders />} />
         <Route path="/stats/player" element={<Player />} />
         <Route path="/boxscore" element={<Boxscore />} />
+        <Route path="/picks" element={<Picks />} />
       </Routes>
       <Footer />
     </div> 
