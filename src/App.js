@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import Player from "./components/Player";
 import Boxscore from "./components/Boxscore";
 import Picks from "./components/Picks";
+import { Navigate } from "react-router-dom";
 
 function setCookie(name, value, days) {
   var expires = "";
@@ -34,6 +35,7 @@ function App() {
         <Route path="/stats/player" element={<Player />} />
         <Route path="/boxscore" element={<Boxscore />} />
         <Route path="/picks" element={<Picks />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <Footer />
     </div> 
