@@ -80,113 +80,100 @@ body {
 /* NAVBAR END */
 
 /* NEWS START */
+/* Set max-width to limit the width of the container */
 .news-container {
   max-width: 70rem;
+  margin: 0 auto;
 }
 
+/* Style for each news card */
 .eachNews-card {
   display: flex;
-  border: 1px solid black;
+  border: 1px solid #ddd;
   margin: 10px;
   border-radius: 5px;
   padding: 10px;
   align-items: center;
-  height: 8rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out;
 }
 
+.eachNews-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for the news image */
 .newsImg {
   width: 18rem;
   border-radius: 5px;
   margin: 5px;
   height: -webkit-fill-available;
 }
+
+/* Style for the news title */
 .eachNews-h1 {
-  font-size: 1rem;
+  font-size: 1.5rem;
   margin: 0;
+  font-weight: bold;
+  text-align: left;
+  color: #333;
 }
-.fa-tiktok {
-  color: #fff;
-  font-size: 36em;
-  text-shadow: 15px 15px #ff3353fc, -15px -15px cyan;
-}
+
+/* Style for the news date */
 .newsDate {
   font-size: 12px;
-  color: gray;
-}
-.news-info-div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  /* overflow-y: scroll; */
-  scrollbar-width: none; /* hide the scrollbar */
+  color: #999;
+  margin-bottom: 0.5rem;
 }
 
-/* style the scrollbar thumb */
-.news-info-div::-webkit-scrollbar-thumb {
-  background-color: #999;
-  border-radius: 1em;
+/* Style for the news description */
+.description {
+  margin-left: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.2;
+  color: #555;
+  overflow: hidden;
 }
 
+/* Style for the "Read More" button */
 .read-btn {
   display: inline-block;
   padding: 0.3rem 1rem;
-  font-size: 0.5rem;
+  font-size: 0.8rem;
   margin-left: 10px;
-  font-weight: normal; /* change from bold to normal /
+  font-weight: normal;
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
-  color: #007bff; / change from white to blue /
-  background-color: transparent; / change from blue to transparent /
-  border: 1px solid #007bff; / add border */
+  color: #007bff;
+  background-color: transparent;
+  border: 1px solid #007bff;
   border-radius: 0.25rem;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
-  }
-  
-  .read-btn:hover {
+}
+
+.read-btn:hover {
   background-color: #007bff;
-  color: #fff; /* change text color to white on hover */
-  }
-  
-  .read-btn:active {
+  color: #fff;
+}
+
+.read-btn:active {
   transform: translateY(1px);
-  }
-  
-  
-.description {
-  margin-left: 0.5rem;
 }
 
-@media screen and (max-width: 768px) {
-  .eachNews-card {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid black;
-    margin: 10px;
-    border-radius: 5px;
-    padding: 10px;
-    align-items: center;
-    /* overflow: hidden; */
-    height: auto;
-  }
-  .eachNews-h1 {
-    text-align: center;
-  }
-  .newsImg {
-    width: 100%;
-    border-radius: 5px;
-    margin: 5px;
-    object-fit: contain;
-  }
+/* Style for the news info container */
+.news-info-div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
-.current-news {
-  text-align: center;
-}
-
+/* Style for the news pics container */
 .news-pics-container {
   display: flex;
   justify-content: center;
@@ -197,6 +184,7 @@ body {
   border-radius: 5px;
   background-color: #fff;
   overflow: hidden;
+  margin-bottom: 30px;
 }
 
 .news-pics-container img {
@@ -206,7 +194,6 @@ body {
   border-radius: 5px;
 }
 
-/* add some shadow and hover effects */
 .news-pics-container img:hover {
   transform: scale(1.05);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -215,14 +202,72 @@ body {
 .news-pics-container:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+/* Style for the current news */
+.current-news {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  color: #333;
+  margin-top: 1rem;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
 
-
-
+/* Style for the news header picture */
 .newsheader-pic {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+@media screen and (max-width: 768px) {
+  /* Style for each news card in mobile view */
+  .eachNews-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    align-items: center;
+    height: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .eachNews-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Style for the news image in mobile view */
+  .newsImg {
+    width: 100%;
+    border-radius: 5px;
+    margin: 5px;
+  }
+
+  /* Style for the news title in mobile view */
+  .eachNews-h1 {
+    text-align: center;
+  }
+
+  /* Style for the news date in mobile view */
+  .newsDate {
+    text-align: center;
+  }
+
+  /* Style for the news info container in mobile view */
+  .news-info-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
 /* NEWS END */
 
 /* STANDINGS START */
@@ -716,67 +761,6 @@ th {
 }
 
 
-/* .picks-pct-div {
-  background-color: rgb(4,14,39);
-  color: white;
-  display: flex;
-  justify-content: space-around;
-}
-
-.picks-pct-div p {
-  text-align: center;
-}
-.picks-header {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-}
-
-.expert-picks-div {
-  width: 40%;
-}
-.game-info {
-  width: 60%;
-  border-right: 1px solid;
-}
-
-.each-pick {
-  border: 1px solid black;
-  border-bottom: 0;
-}
-
-.top-each-pick {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
-.top-each-pick img {
-  width: 2rem;
-}
-.inside-picks-div{
-  margin: 0.5rem;
-  display: flex;
-  align-items: center;
-}
-
-.inside-picks-div p {
-  margin: 0.5rem;
-}
-
-.inside2-picks-div p{
-  margin: 0.5rem;
-}
-.expert-table-headers {
-  display: flex;
-  background: gray;
-  justify-content: space-between;
-  color: white;
-}
-.expert-table-headers p {
-  font-weight: bold;
-  margin: 1rem;
-} */
 .picks-pct-div {
   background-color: #0C2340;
   color: white;
@@ -878,15 +862,7 @@ th {
   text-transform: uppercase;
 }
 
-.current-news {
-  font-family: 'Roboto', sans-serif;
-  font-size: 2rem;
-  text-align: center;
-  color: #333;
-  margin-top: 1rem;
-  margin-bottom: 30px;
-  text-transform: uppercase;
-}
+
 .team-name-h1 {
   font-family: 'Roboto', sans-serif;
   font-size: 1.9rem;

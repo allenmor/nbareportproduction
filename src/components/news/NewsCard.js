@@ -30,7 +30,7 @@ function NewsCard({ title, date, image, description }) {
 
   return (
     <div className="eachNews-card">
-      <img alt="newsImg" className="newsImg" src={image ? image : ''} />
+      <img style={{objectFit: 'cover'}} alt="newsImg" className="newsImg" src={image ? image : ''} />
       <div style={showFullDescription ? {overflowY: 'scroll'} : {}} className="news-info-div">
         <h1 className="eachNews-h1">{title}</h1>
         <p className="newsDate">{formattedDate}</p>
