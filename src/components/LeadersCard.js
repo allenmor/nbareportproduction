@@ -33,7 +33,7 @@ function LeadersCard({ stat }) {
       <div className='stats-container'>
         <div className='stats-info'>
           <p>{stat.tableData[0].col0}</p>
-          <p style={{cursor: 'pointer'}} className='player-leader-name' onClick={() => handleNameClick(stat.tableData[0].playerName)}>
+          <p style={{cursor: 'pointer', color:'#0074D9', fontWeight: 'bold'}} className='player-leader-name' onClick={() => handleNameClick(stat.tableData[0].playerName)}>
             {stat.tableData[0].playerName}
           </p>
           <p>{stat.tableData[0].teamName}</p>
@@ -46,7 +46,7 @@ function LeadersCard({ stat }) {
           <div key={i} className='stats-container'>
             <div className='stats-info'>
               <p>{el.col0}</p>
-              <p style={{cursor: 'pointer'}} className='player-leader-name' onClick={() => handleNameClick(el.playerName)}>
+              <p style={{cursor: 'pointer',  color:'#0074D9', fontWeight: 'bold'}} className='player-leader-name' onClick={() => handleNameClick(el.playerName)}>
                 {el.playerName}
               </p>
               <p>{el.teamName}</p>
