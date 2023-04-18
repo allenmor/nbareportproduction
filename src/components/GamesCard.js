@@ -40,7 +40,7 @@ function GamesCard({ game }) {
             <td>{game.scores[4][0] + game.scores[4][1]}</td>
           </tr>
           <tr>
-            <td>{game.scores[0][4] + game.scores[0][5] + game.scores[0][6]}</td>
+            <td>{game.scores[0][9] + game.scores[0][10] + game.scores[0][11]}</td>
             <td>{game.scores[1][2] + game.scores[1][3]}</td>
             <td>{game.scores[2][2] + game.scores[2][3]}</td>
             <td>{game.scores[3][2] + game.scores[3][3]}</td>
