@@ -14,7 +14,7 @@ function Stats() {
 
   useEffect(() => {
 
-    fetch("localhost:3000/playerz")
+    fetch("https://raw.githubusercontent.com/allenmor/nbareportproduction/main/stats.json?token=GHSAT0AAAAAACEMMLYWPAQH7B2DT5RETSZQZEZYJJQ")
       .then((res) => res.json())
       .then((data) => {
         setData(data);
