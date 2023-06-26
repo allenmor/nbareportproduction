@@ -12,7 +12,7 @@ function Standings() {
 
 
   useEffect(() => {
-    fetch("https://raw.githubusercontent.com/allenmor/nbareportproduction/main/standings.json?token=GHSAT0AAAAAACEMMLYW4TVHL42QBPI373QSZEZYTXQ")
+    fetch("https://raw.githubusercontent.com/allenmor/nbareportproduction/main/standings.json")
       .then((res) => res.json())
       .then((data) => {
         setData(data);

@@ -14,14 +14,13 @@ function Stats() {
 
   useEffect(() => {
 
-    fetch("https://raw.githubusercontent.com/allenmor/nbareportproduction/main/stats.json?token=GHSAT0AAAAAACEMMLYWGS3QGCLZRYQWJX4WZEZYRLQ")
+    fetch("https://raw.githubusercontent.com/allenmor/nbareportproduction/main/stats.json")
       .then((res) => res.json())
       .then((data) => {
         setData(data);
         setIsLoading(false);
       })
       .catch((error) => console.error(error));
-      
       
   }, []);
 
