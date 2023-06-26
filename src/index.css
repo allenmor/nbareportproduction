@@ -996,7 +996,9 @@ th {
   background-color: red;
 }
 
-
+.selectedPlayerDiv img {
+  width: 23rem;
+}
 /* GUESS THE PLAYER END */
 
 

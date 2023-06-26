@@ -5,6 +5,8 @@ function GuessThePlayer() {
   const [selectedPlayer, setSelectedPlayer] = useState(null);
   const [choices, setChoices] = useState([]);
   const [selectedChoice, setSelectedChoice] = useState(null); // New state variable
+  const [points, setPoints] = useState(0)
+  const [loadingNewPlayer, setLoadingNewPlayer] = useState(false); // New state variable
 
   useEffect(() => {
     fetch(
@@ -31,23 +33,47 @@ function GuessThePlayer() {
     let a = players[randomIndexOptionA];
     let b = players[randomIndexOptionB];
     let c = players[randomIndexOptionC];
-    setChoices([a.name, b.name, c.name, players[randomIndexPlayer].name]);
-    console.log(a, b, c);
+    
+    let options = [a.name, b.name, c.name, players[randomIndexPlayer].name];
+  
+    // Fisher-Yates shuffle
+    for(let i = options.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random() * i)
+      const temp = options[i]
+      options[i] = options[j]
+      options[j] = temp
+    }
+    
+    setChoices(options);
+
   };
-  console.log(choices);
+  
+
 
 
   function handleChoiceClick(name){
-    setSelectedChoice(name); // Set the current choice when a choice is clicked
+    if (loadingNewPlayer) {
+      return; // Ignore clicks while loading a new player
+    }
+
+    setSelectedChoice(name);
 
     if(name === selectedPlayer.name) {
-        console.log('yes');
+        setPoints(prev => prev + 1)
     } else {
-        console.log('no');
+        setPoints(prev => prev - 1)
     }
+
+    setLoadingNewPlayer(true);
+    setTimeout(() => {
+        startGame();
+        setSelectedChoice(null);
+        setLoadingNewPlayer(false);
+    }, 600);
   }
   return (
     <div className="guess-player-div">
+        <p>Points {points}</p>
       {!selectedPlayer && (
         <button className="start-game-button" onClick={startGame}>
           Start Game
