@@ -7,6 +7,8 @@ function GuessThePlayer() {
   const [selectedChoice, setSelectedChoice] = useState(null); // New state variable
   const [points, setPoints] = useState(0)
   const [loadingNewPlayer, setLoadingNewPlayer] = useState(false); // New state variable
+  const [correct, setCorrect] = useState(0)
+  const [wrong, setWrong] = useState(0)
 
   useEffect(() => {
     fetch(
@@ -60,8 +62,10 @@ function GuessThePlayer() {
 
     if(name === selectedPlayer.name) {
         setPoints(prev => prev + 1)
+        setCorrect(prev => prev + 1)
     } else {
         setPoints(prev => prev - 1)
+        setWrong(prev => prev + 1)
     }
 
     setLoadingNewPlayer(true);
@@ -73,7 +77,11 @@ function GuessThePlayer() {
   }
   return (
     <div className="guess-player-div">
+        <div className="guess-numbers-div">
+            <p>Correct Guess: {correct}</p>
         <p>Points {points}</p>
+        <p>Wrong Guess {wrong}</p>
+        </div>
       {!selectedPlayer && (
         <button className="start-game-button" onClick={startGame}>
           Start Game

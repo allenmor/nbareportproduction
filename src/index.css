@@ -1002,6 +1002,41 @@ th {
 .selectedPlayerDiv img {
   width: 23rem;
 }
+
+.guess-numbers-div {
+  width: 89%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #282c34;
+  padding: 15px;
+  color: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.guess-numbers-div p {
+  margin: 0;
+}
+
+/* Extra style for points */
+.guess-numbers-div p:nth-child(2) {
+  color: #61dafb; /* Light blue text color */
+  font-size: 1.5rem; /* Larger text */
+  font-weight: bold; /* Bold text */
+}
+.guess-numbers-div p:nth-child(1) {
+  color: green; /* Light blue text color */
+  font-weight: bold; /* Bold text */
+
+}
+.guess-numbers-div p:nth-child(3) {
+  color: red; /* Light blue text color */
+  font-weight: bold; /* Bold text */
+
+
+}
+
 /* GUESS THE PLAYER END */
 
 
