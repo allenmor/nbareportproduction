@@ -14,7 +14,7 @@ function Stats() {
 
   useEffect(() => {
 
-    fetch("https://raw.githubusercontent.com/allenmor/nbareportproduction/main/stats.json?token=GHSAT0AAAAAACEMMLYWPAQH7B2DT5RETSZQZEZYJJQ")
+    fetch("https://raw.githubusercontent.com/allenmor/nbareportproduction/main/stats.json?token=GHSAT0AAAAAACEMMLYWGS3QGCLZRYQWJX4WZEZYRLQ")
       .then((res) => res.json())
       .then((data) => {
         setData(data);

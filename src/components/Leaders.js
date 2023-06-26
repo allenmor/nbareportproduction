@@ -7,7 +7,7 @@ function Leaders() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(()=>{
-    fetch('https://nbaexpressbe.onrender.com/points-leaders')
+    fetch('https://raw.githubusercontent.com/allenmor/nbareportproduction/main/leaders.json?token=GHSAT0AAAAAACEMMLYXZ6KBTVSWSF2SQSGUZEZYP5Q')
     .then(res => res.json())
     .then(data => {
       setData(data.results)
