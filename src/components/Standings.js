@@ -1,11 +1,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 
 function Standings() {
 
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [clickedRows, setClickedRows] = useState({});
@@ -28,9 +28,9 @@ function Standings() {
     });
   }
 
-  function handleTeamClick(team) {
-    navigate('/lineups', { state: { teamSelect:team } })
-  }
+  // function handleTeamClick(team) {
+  //   navigate('/lineups', { state: { teamSelect:team } })
+  // }
   return (
     <>
       <h1 className='team-name-h1'>2022-23 NBA Standings</h1>
@@ -65,7 +65,7 @@ function Standings() {
                 }}
                 onClick={() => handleRowClick(index)}
               >
-                <td className="team-standings-name" onClick={() => handleTeamClick(stat.Team)}>{stat.Team}</td>
+                <td className="team-standings-name">{stat.Team}</td>
                 <td>{stat.Gp}</td>
                 <td style={{ backgroundColor: 'rgba(0, 0, 255, 0.2)', color: 'black', fontWeight: 'bold' }}>{stat.Gw}</td>
                 <td style={{ backgroundColor: 'rgba(0, 0, 255, 0.2)', color: 'black', fontWeight: 'bold'  }}>{stat.GL}</td>

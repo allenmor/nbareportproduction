@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import store from '../store';
-import { addPlayer } from '../actions';
+// import { useNavigate } from "react-router-dom";
+// import store from '../store';
+// import { addPlayer } from '../actions';
 
 function Stats() {
 
@@ -10,7 +10,7 @@ function Stats() {
   const [isLoading, setIsLoading] = useState(true);
   const [sortOrders, setSortOrders] = useState({});
   const [searchTerm, setSearchTerm] = useState("");
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   useEffect(() => {
 
@@ -72,25 +72,25 @@ function Stats() {
   const filteredData = data.filter((player) =>
     player.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
-  function handleNameClick(playerName) {
-    let player = playerName.split("");
-    let playArr = [];
-    for (let i = 0; i < player.length; i++) {
-      if(player[i] !== "č" && player[i] !== "ć") {
-        playArr.push(player[i])
-      } else {
-        playArr.push('c')
-      } 
-    }
-    let playerNameDone = playArr.join('')
-    fetch(`https://nbaexpressbe.onrender.com/player?name=${playerNameDone}`)
-      .then((res) => res.json()) 
-      .then((data) => {
-        store.dispatch(addPlayer(data)); // Dispatch the addPlayer action with the player data
-        navigate('/stats/player')
-      })
-      .catch((error) => console.error(error));
-  }
+  // function handleNameClick(playerName) {
+  //   let player = playerName.split("");
+  //   let playArr = [];
+  //   for (let i = 0; i < player.length; i++) {
+  //     if(player[i] !== "č" && player[i] !== "ć") {
+  //       playArr.push(player[i])
+  //     } else {
+  //       playArr.push('c')
+  //     } 
+  //   }
+  //   let playerNameDone = playArr.join('')
+  //   fetch(`https://nbaexpressbe.onrender.com/player?name=${playerNameDone}`)
+  //     .then((res) => res.json()) 
+  //     .then((data) => {
+  //       store.dispatch(addPlayer(data)); // Dispatch the addPlayer action with the player data
+  //       navigate('/stats/player')
+  //     })
+  //     .catch((error) => console.error(error));
+  // }
   
 
   return (
@@ -157,7 +157,7 @@ function Stats() {
                 onClick={() => handleRowClick(index)}
               >
                 <td
-                  onClick={() => handleNameClick(player.name)}
+                  // onClick={() => handleNameClick(player.name)}
                   style={{cursor:'pointer', color: "blue", whiteSpace: 'nowrap'}}
                 >
                   {player.name}
