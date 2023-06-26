@@ -906,12 +906,97 @@ th {
 /* GAMES COMPONENT START  */
 .games-to-play-div {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .eachGame-to-play-div{
   margin: 1rem;
+  cursor: pointer;
 }
 .eachGame-to-play-div img {
   width: 21rem;
+  transition: filter 0.3s ease;
 }
 
+.eachGame-to-play-div img:hover {
+  filter: brightness(50%);
+}
+
+
+
 /* GAMES COMPONENT END  */
+
+
+/* GUESS THE PLAYER START */
+
+.selectedPlayerDiv{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+/* Button Styles */
+.start-game-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #4CAF50;
+  color: #ffffff;
+  border-radius: 4px;
+  border: none;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.start-game-button:hover {
+  background-color: #45a049;
+}
+
+.start-game-button:active {
+  background-color: #3e8e41;
+}
+
+.guess-player-div {
+  display: flex;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.choices-div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* create two columns */
+  grid-gap: 20px; /* provide some space between the grid items */
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.each-choice {
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  border: 1px solid red;
+  padding: 20px; /* add some space around the text */
+  border-radius: 5px; /* slightly round the corners */
+  font-family: 'Arial', sans-serif; /* change the font */
+  font-size: 1.2rem; /* make the text a bit larger */
+  background-color: #f8f8f8; /* set a light background color */
+  cursor: pointer; /* change the cursor when hovering over the choice */
+  transition: all 0.3s ease; /* make state changes animate smoothly */
+}
+
+.each-choice:hover {
+  transform: scale(1.02); /* slightly increase the size when hovering */
+}
+.correct-choice {
+  background-color: green;
+}
+
+.wrong-choice {
+  background-color: red;
+}
+
+
+/* GUESS THE PLAYER END */
+
+

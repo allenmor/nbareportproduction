@@ -5,7 +5,7 @@ import guessLogo from '../../images/currylebrondurant.jpeg'
 function Games() {
     const navigate = useNavigate()
     function handleGuessClick() {
-        navigate('/whoheplayfor')
+        navigate('/guesstheplayer')
     }
   return (
     <div className='games-to-play-div'>

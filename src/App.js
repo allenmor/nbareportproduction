@@ -10,7 +10,7 @@ import Player from "./components/Player";
 import Boxscore from "./components/Boxscore";
 import Picks from "./components/Picks";
 import Games from "./components/Games/Games";
-import WhoHePlayFor from "./components/Games/WhoHePlayFor";
+import GuessThePlayer from "./components/Games/GuessThePlayer";
 import { Navigate } from "react-router-dom";
 
 function setCookie(name, value, days) {
@@ -38,7 +38,7 @@ function App() {
         <Route path="/boxscore" element={<Boxscore />} />
         <Route path="/picks" element={<Picks />} />
         <Route path="/games" element={<Games />} />
-        <Route path="/whoheplayfor" element={<WhoHePlayFor />} />
+        <Route path="/guesstheplayer" element={<GuessThePlayer />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <Footer />
