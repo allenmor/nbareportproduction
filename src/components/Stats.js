@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import store from '../store';
 import { addPlayer } from '../actions';
 
-
 function Stats() {
+
   const [data, setData] = useState([]);
   const [clickedRows, setClickedRows] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -14,7 +14,7 @@ function Stats() {
 
   useEffect(() => {
 
-    fetch("https://nbaexpressbe.onrender.com/playerz")
+    fetch("localhost:3000/playerz")
       .then((res) => res.json())
       .then((data) => {
         setData(data);
