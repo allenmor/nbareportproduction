@@ -912,6 +912,9 @@ th {
 .eachGame-to-play-div{
   margin: 1rem;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .eachGame-to-play-div img {
   width: 21rem;

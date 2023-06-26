@@ -11,8 +11,9 @@ function Games() {
     <div className='games-to-play-div'>
         <div onClick={handleGuessClick} className='eachGame-to-play-div'>
             <img alt='guess' src={guessLogo}/>
+            <p>Guess The Player</p>
         </div>
-        <div className='eachGame-to-play-div'>
+        {/* <div className='eachGame-to-play-div'>
             <img alt='guess' src={guessLogo}/>
         </div>
         <div className='eachGame-to-play-div'>
@@ -20,7 +21,7 @@ function Games() {
         </div>
         <div className='eachGame-to-play-div'>
             <img alt='guess' src={guessLogo}/>
-        </div>
+        </div> */}
     </div>
   )
 }
