@@ -968,24 +968,30 @@ th {
 }
 .choices-div {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* create two columns */
-  grid-gap: 20px; /* provide some space between the grid items */
-  border: 1px solid black;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
   padding: 20px;
+  border-radius: 20px;
+  background: rgba(0,0,0,0.6);
+  box-shadow: 0px 0px 50px rgba(0,0,0,0.8);
 }
 
 .each-choice {
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  border: 1px solid red;
-  padding: 20px; /* add some space around the text */
-  border-radius: 5px; /* slightly round the corners */
-  font-family: 'Arial', sans-serif; /* change the font */
-  font-size: 1.2rem; /* make the text a bit larger */
-  background-color: #f8f8f8; /* set a light background color */
-  cursor: pointer; /* change the cursor when hovering over the choice */
-  transition: all 0.3s ease; /* make state changes animate smoothly */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 15px;
+  font-family: 'Arial', sans-serif;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: rgb(23, 23, 97);
+  /* background: linear-gradient(to bottom right, #1e3c72 0%, #2a5298 100%); */
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.8);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #fff;
 }
 
 .each-choice:hover {
@@ -1032,8 +1038,7 @@ th {
 }
 .guess-numbers-div p:nth-child(3) {
   color: red; /* Light blue text color */
-  font-weight: bold; /* Bold text */
-
+  
 
 }
 
