@@ -10,9 +10,11 @@ import {
   query,
 } from "firebase/firestore";
 import "./Chat.css";
+import EachMessage from "./EachMessage";
+import ChatForm from "./ChatForm";
 
 function Chat() {
-  const [item, setItem] = useState({ name: "", text: "", color: "Red" });
+  const [item, setItem] = useState({ name: "", text: "", color: "" });
   const [items, setItems] = useState([]);
   const [currentId, setCurrentId] = useState("");
 
@@ -54,7 +56,7 @@ function Chat() {
       }
     }
     setItem({ name: "", text: "", color: "" });
-    getItems()
+    getItems();
   };
 
   const onDelete = async (id) => {
@@ -63,7 +65,7 @@ function Chat() {
     } catch (error) {
       console.error("Error deleting document: ", error);
     }
-    getItems()
+    getItems();
   };
 
   useEffect(() => {
@@ -72,77 +74,30 @@ function Chat() {
 
   // Colors for selection menu
   const colors = [
+    "Text Background",
     "Red",
     "Blue",
     "Green",
-    "Yellow",
     "Black",
-    "White",
     "Orange",
     "Purple",
     "Brown",
-    "Pink",
   ];
 
   return (
     <div className="chat-box">
       <ul>
         {items.map((item) => (
-          <li
-            style={{ backgroundColor: item.color }}
-            className="each-message"
+          <EachMessage
             key={item.id}
-          >
-            {item.name} - {item.text} - {item.voteup}
-            <button
-              onClick={() => {
-                setItem({
-                  name: item.name,
-                  text: item.text,
-                  color: item.color,
-                });
-                setCurrentId(item.id);
-              }}
-            >
-              Edit
-            </button>
-            <button onClick={() => onDelete(item.id)}>Delete</button>
-          </li>
+            item={item}
+            setItem={setItem}
+            setCurrentId={setCurrentId}
+            onDelete={onDelete}
+          />
         ))}
       </ul>
-      <form onSubmit={onSubmit}>
-        <input
-          type="text"
-          value={item.name}
-          onChange={(e) =>
-            setItem((prevState) => ({ ...prevState, name: e.target.value }))
-          }
-          placeholder="Name"
-        />
-        <input
-          type="text"
-          value={item.text}
-          onChange={(e) =>
-            setItem((prevState) => ({ ...prevState, text: e.target.value }))
-          }
-          placeholder="Text"
-        />
-        <select
-          name="color"
-          id="color"
-          value={item.color}
-          onChange={(e) =>
-            setItem((prevState) => ({ ...prevState, color: e.target.value }))
-          }
-        >
-          {colors.map((color, i) => (
-            <option key={i} value={color}>
-              {color}
-            </option>
-          ))}
-        </select>
-        <button type="submit">Add/Update Item</button>
-      </form>
+      <ChatForm item={item} setItem={setItem} colors={colors} onSubmit={onSubmit} />
     </div>
   );
 }
