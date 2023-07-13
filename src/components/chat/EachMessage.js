@@ -9,7 +9,7 @@ function EachMessage({ item, setItem, setCurrentId, onDelete }) {
       key={item.id}
     >
       {item.name} - {item.text} - {item.voteup}
-      <button
+      {/* <button
         onClick={() => {
           setItem({
             name: item.name,
@@ -20,8 +20,8 @@ function EachMessage({ item, setItem, setCurrentId, onDelete }) {
         }}
       >
         Edit
-      </button>
-      <button onClick={() => onDelete(item.id)}>Delete</button>
+      </button> */}
+      {/* <button onClick={() => onDelete(item.id)}>Delete</button> */}
     </li>
   )
 }
