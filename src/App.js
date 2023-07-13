@@ -12,7 +12,7 @@ import Picks from "./components/Picks";
 import Games from "./components/Games/Games";
 import GuessThePlayer from "./components/Games/GuessThePlayer";
 import { Navigate } from "react-router-dom";
-
+import Chat from "./components/chat/Chat";
 function setCookie(name, value, days) {
   var expires = "";
   if (days) {
@@ -39,6 +39,7 @@ function App() {
         <Route path="/picks" element={<Picks />} />
         <Route path="/games" element={<Games />} />
         <Route path="/guesstheplayer" element={<GuessThePlayer />} />
+        <Route path="/chat" element={<Chat />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <Footer />
