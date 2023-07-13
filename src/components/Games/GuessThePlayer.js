@@ -80,7 +80,7 @@ function GuessThePlayer() {
       </div>
       {!selectedPlayer && (
         <button className="start-game-button" onClick={startGame}>
-          Start Game
+          Start Game 
         </button>
       )}
       {selectedPlayer && (
