@@ -4,6 +4,7 @@ function ChatForm({ item, setItem, colors, onSubmit }) {
   return (
     <form onSubmit={onSubmit}>
       <input
+      className='name-input'
         type="text"
         value={item.name}
         onChange={(e) =>

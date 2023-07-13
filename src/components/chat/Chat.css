@@ -69,4 +69,7 @@
   .chat-box form button:hover {
     background: #0056b3;
   }
+  .name-input {
+    width: 7rem;
+  }
   
