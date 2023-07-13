@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './Chat.css'
 function ChatForm({ item, setItem, colors, onSubmit }) {
   return (
     <form onSubmit={onSubmit}>
@@ -23,7 +23,7 @@ function ChatForm({ item, setItem, colors, onSubmit }) {
       <select
         name="color"
         id="color"
-        value={item.color}
+        value={item.color='blue'}
         onChange={(e) =>
           setItem((prevState) => ({ ...prevState, color: e.target.value }))
         }

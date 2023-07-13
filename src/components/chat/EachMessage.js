@@ -8,7 +8,7 @@ function EachMessage({ item, setItem, setCurrentId, onDelete }) {
       className="eachMessage"
       key={item.id}
     >
-      {item.name} - {item.text} - {item.voteup}
+      {item.name} - {item.text} {item.voteup}
       {/* <button
         onClick={() => {
           setItem({
