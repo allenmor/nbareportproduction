@@ -1,10 +1,11 @@
 import React from 'react';
-import './Chat.css'
+import './Chat.css';
+
 function ChatForm({ item, setItem, colors, onSubmit }) {
   return (
     <form onSubmit={onSubmit}>
       <input
-      className='name-input'
+        className='name-input'
         type="text"
         value={item.name}
         onChange={(e) =>
@@ -23,7 +24,7 @@ function ChatForm({ item, setItem, colors, onSubmit }) {
       <select
         name="color"
         id="color"
-        value={item.color='blue'}
+        value={item.color || 'blue'}
         onChange={(e) =>
           setItem((prevState) => ({ ...prevState, color: e.target.value }))
         }

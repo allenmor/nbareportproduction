@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { db } from "../../firebase";
+import { serverTimestamp, orderBy } from "firebase/firestore";
 import {
   addDoc,
   collection,
@@ -17,9 +18,10 @@ function Chat() {
   const [item, setItem] = useState({ name: "", text: "", color: "" });
   const [items, setItems] = useState([]);
   const [currentId, setCurrentId] = useState("");
+  const chatRef = useRef(null);
 
   const getItems = async () => {
-    const q = query(collection(db, "chat"));
+    const q = query(collection(db, "chat"), orderBy("timestamp"));
     const querySnapshot = await getDocs(q);
     let data = [];
     querySnapshot.forEach((doc) => {
@@ -31,24 +33,27 @@ function Chat() {
   const onSubmit = async (e) => {
     e.preventDefault();
 
+    const timestamp = serverTimestamp();
+
     if (currentId === "") {
-      // Create new document
       try {
         await addDoc(collection(db, "chat"), {
           name: item.name,
           text: item.text,
           color: item.color,
+          timestamp: timestamp,
         });
+        console.log(item.color);
       } catch (error) {
         console.error("Error adding document: ", error);
       }
     } else {
-      // Update existing document
       try {
         await updateDoc(doc(db, "chat", currentId), {
           name: item.name,
           text: item.text,
           color: item.color,
+          timestamp: timestamp,
         });
         setCurrentId("");
       } catch (error) {
@@ -68,11 +73,21 @@ function Chat() {
     getItems();
   };
 
+  const scrollToBottom = () => {
+    if (chatRef.current) {
+      chatRef.current.scrollTop = chatRef.current.scrollHeight;
+    }
+  };
+
   useEffect(() => {
     getItems();
+    scrollToBottom();
   }, []);
 
-  // Colors for selection menu
+  useEffect(() => {
+    scrollToBottom();
+  }, [items]);
+
   const colors = [
     "Text Background",
     "Red",
@@ -86,7 +101,7 @@ function Chat() {
 
   return (
     <div className="chat-box">
-      <ul>
+      <ul ref={chatRef}>
         {items.map((item) => (
           <EachMessage
             key={item.id}
