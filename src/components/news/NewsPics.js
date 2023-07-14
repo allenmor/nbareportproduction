@@ -23,7 +23,7 @@ function NewsPics() {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % imageArray.length);
-    }, 1500);
+    }, 2500);
 
     return () => clearInterval(intervalId);
   }, [imageArray]);
