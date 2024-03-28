@@ -1,19 +1,13 @@
 import React, { useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
-// import store from '../store';
-// import { addPlayer } from '../actions';
 
 function Stats() {
-
   const [data, setData] = useState([]);
   const [clickedRows, setClickedRows] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [sortOrders, setSortOrders] = useState({});
   const [searchTerm, setSearchTerm] = useState("");
-  // const navigate = useNavigate()
 
   useEffect(() => {
-
     fetch("https://raw.githubusercontent.com/allenmor/nbareportproduction/main/stats.json")
       .then((res) => res.json())
       .then((data) => {
@@ -21,7 +15,6 @@ function Stats() {
         setIsLoading(false);
       })
       .catch((error) => console.error(error));
-      
   }, []);
 
   const handleRowClick = (index) => {
@@ -33,34 +26,28 @@ function Stats() {
 
   function handleThClick(column) {
     setData((prevData) => {
-      const filteredData = prevData.filter((el) => el.gamesPlayed > 20); // Filter out objects where gamesPlayed is less than 20
-      // Create a new copy of the data array to avoid mutating the original state
+      const filteredData = prevData.filter((el) => el.G > 20);
       const newData = [...filteredData];
-      const currentSortOrder = sortOrders[column] || "desc"; // Get the current sort order for this column
-      const newSortOrder = currentSortOrder === "desc" ? "asc" : "desc"; // Toggle the sort order
+      const currentSortOrder = sortOrders[column] || "desc";
+      const newSortOrder = currentSortOrder === "desc" ? "asc" : "desc";
       newData.sort((a, b) => {
-        // Sort by the column in the current sort order
         const sortDirection = newSortOrder === "asc" ? 1 : -1;
         if (column === "FG%") {
-          const aFgPercentage = a["fieldGoalsMade"] / a["fieldGoalsAttempted"];
-          const bFgPercentage = b["fieldGoalsMade"] / b["fieldGoalsAttempted"];
+          const aFgPercentage = a.FG / a.FGA;
+          const bFgPercentage = b.FG / b.FGA;
           return sortDirection * (aFgPercentage - bFgPercentage);
         } else if (column === "3P%") {
-          const aTpPercentage =
-            a["threePointersMade"] / a["threePointersAttempted"];
-          const bTpPercentage =
-            b["threePointersMade"] / b["threePointersAttempted"];
+          const aTpPercentage = a["3P"] / a["3PA"];
+          const bTpPercentage = b["3P"] / b["3PA"];
           return sortDirection * (aTpPercentage - bTpPercentage);
         } else if (column === "2P%") {
-          const aTwopPercentage =
-            a["twoPointersMade"] / a["twoPointersAttempted"];
-          const bTwopPercentage =
-            b["twoPointersMade"] / b["twoPointersAttempted"];
+          const aTwopPercentage = a["2P"] / a["2PA"];
+          const bTwopPercentage = b["2P"] / b["2PA"];
           return sortDirection * (aTwopPercentage - bTwopPercentage);
         }
         return sortDirection * (a[column] - b[column]);
       });
-      setSortOrders({ ...sortOrders, [column]: newSortOrder }); // Update the sort order for this column
+      setSortOrders({ ...sortOrders, [column]: newSortOrder });
       return newData;
     });
   }
@@ -70,28 +57,8 @@ function Stats() {
   };
 
   const filteredData = data.filter((player) =>
-    player.name.toLowerCase().includes(searchTerm.toLowerCase())
+    player.Player.toLowerCase().includes(searchTerm.toLowerCase())
   );
-  // function handleNameClick(playerName) {
-  //   let player = playerName.split("");
-  //   let playArr = [];
-  //   for (let i = 0; i < player.length; i++) {
-  //     if(player[i] !== "č" && player[i] !== "ć") {
-  //       playArr.push(player[i])
-  //     } else {
-  //       playArr.push('c')
-  //     } 
-  //   }
-  //   let playerNameDone = playArr.join('')
-  //   fetch(`https://nbaexpressbe.onrender.com/player?name=${playerNameDone}`)
-  //     .then((res) => res.json()) 
-  //     .then((data) => {
-  //       store.dispatch(addPlayer(data)); // Dispatch the addPlayer action with the player data
-  //       navigate('/stats/player')
-  //     })
-  //     .catch((error) => console.error(error));
-  // }
-  
 
   return (
     <div className="standings-table-div">
@@ -108,94 +75,90 @@ function Stats() {
         ""
       )}
       <div className="table-div">
-
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : (
-        <table className="standings-table">
-          <thead>
-            <tr>
-              <th>Player</th> 
-              <th>Pos</th>
-              <th onClick={() => handleThClick("age")}>Age</th>
-              <th>Tm</th>
-              <th onClick={() => handleThClick("gamesPlayed")}>G</th>
-              <th onClick={() => handleThClick("gamesStarted")}>GS</th>
-              <th onClick={() => handleThClick("minutesPerGame")}>MP</th>
-              <th style={{ backgroundColor: 'rgba(0, 0, 255, 0.7)' }} onClick={() => handleThClick("pointsPerGame")}>Pts</th>
-              <th style={{ backgroundColor: 'rgba(0, 0, 255, 0.7)' }} onClick={() => handleThClick("totalRebounds")}>TRB</th>
-              <th style={{ backgroundColor: 'rgba(0, 0, 255, 0.7)' }} onClick={() => handleThClick("assists")}>AST</th>
-              <th onClick={() => handleThClick("fieldGoalsMade")}>FG</th>
-              <th onClick={() => handleThClick("fieldGoalsAttempted")}>FGA</th>
-              <th onClick={() => handleThClick("fieldGoalPercentage")}>FG%</th>
-              <th onClick={() => handleThClick("threePointersMade")}>3P</th>
-              <th onClick={() => handleThClick("threePointersAttempted")}>
-                3PA
-              </th>
-              <th onClick={() => handleThClick("threePointPercentage")}>3P%</th>
-              <th onClick={() => handleThClick("twoPointersMade")}>2P</th>
-              <th onClick={() => handleThClick("twoPointersAttempted")}>2PA</th>
-              <th onClick={() => handleThClick("twoPointPercentage")}>2P%</th>
-              <th onClick={() => handleThClick("freeThrowsAttempted")}>FTA</th>
-              <th onClick={() => handleThClick("freeThrowPercentage")}>FT%</th>
-              <th onClick={() => handleThClick("offensiveRebounds")}>ORB</th>
-              <th onClick={() => handleThClick("defensiveRebounds")}>DRB</th>
-              <th onClick={() => handleThClick("steals")}>STL</th>
-              <th onClick={() => handleThClick("blocks")}>BLK</th>
-              <th onClick={() => handleThClick("turnovers")}>TOV</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredData.map((player, index) => (
-              <tr
-                key={index}
-                style={{
-                  backgroundColor: clickedRows[index]
-                    ? "#FFFF00"
-                    : "transparent",
-                }}
-                onClick={() => handleRowClick(index)}
-              >
-                <td
-                  // onClick={() => handleNameClick(player.name)}
-                  style={{cursor:'pointer', color: "blue", whiteSpace: 'nowrap'}}
-                >
-                  {player.name}
-                </td>
-                <td>{player.position}</td>
-                <td>{player.age}</td>
-                <td style={{ color: "blue" }}>{player.team}</td>
-                <td>{player.gamesPlayed}</td>
-                <td>{player.gamesStarted}</td>
-                <td>{player.minutesPerGame}</td>
-                <td  style={{ backgroundColor: 'rgba(0, 0, 255, 0.2)', color: 'black', fontWeight: 'bold' }}>{player.pointsPerGame}</td>
-                <td style={{ backgroundColor: 'rgba(0, 0, 255, 0.2)', color: 'black', fontWeight: 'bold' }}>
-                  {(
-                    +player.defensiveRebounds + +player.offensiveRebounds
-                  ).toFixed(1)}
-                </td>
-                <td style={{ backgroundColor: 'rgba(0, 0, 255, 0.2)', color: 'black', fontWeight: 'bold' }}>{player.assists}</td>
-                <td>{player.fieldGoalsMade}</td>
-                <td>{player.fieldGoalsAttempted}</td>
-                <td>{player["freeThrowPercentage"]}</td>
-                <td>{player["threePointersMade"]}</td>
-                <td>{player["threePointersAttempted"]}</td>
-                <td>{player["threePointPercentage"]}</td>
-                <td>{player["twoPointersMade"]}</td>
-                <td>{player["twoPointersAttempted"]}</td>
-                <td>{player["twoPointPercentage"]}</td>
-                <td>{player["freeThrowsAttempted"]}</td>
-                <td>{player["freeThrowPercentage"]}</td>
-                <td>{player.offensiveRebounds}</td>
-                <td>{player.defensiveRebounds}</td>
-                <td>{player.steals}</td>
-                <td>{player.blocks}</td>
-                <td>{player.turnovers}</td>
+        {isLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <table className="standings-table">
+            <thead>
+              <tr>
+                <th>Player</th> 
+                <th>Pos</th>
+                <th onClick={() => handleThClick("Age")}>Age</th>
+                <th>Tm</th>
+                <th onClick={() => handleThClick("G")}>G</th>
+                <th onClick={() => handleThClick("GS")}>GS</th>
+                <th onClick={() => handleThClick("MP")}>MP</th>
+                <th style={{ backgroundColor: 'rgba(0, 0, 255, 0.7)' }} onClick={() => handleThClick("PTS")}>Pts</th>
+                <th style={{ backgroundColor: 'rgba(0, 0, 255, 0.7)' }} onClick={() => handleThClick("TRB")}>TRB</th>
+                <th style={{ backgroundColor: 'rgba(0, 0, 255, 0.7)' }} onClick={() => handleThClick("AST")}>AST</th>
+                <th onClick={() => handleThClick("FG")}>FG</th>
+                <th onClick={() => handleThClick("FGA")}>FGA</th>
+                <th onClick={() => handleThClick("FG%")}>FG%</th>
+                <th onClick={() => handleThClick("3P")}>3P</th>
+                <th onClick={() => handleThClick("3PA")}>3PA</th>
+                <th onClick={() => handleThClick("3P%")}>3P%</th>
+                <th onClick={() => handleThClick("2P")}>2P</th>
+                <th onClick={() => handleThClick("2PA")}>2PA</th>
+                <th onClick={() => handleThClick("2P%")}>2P%</th>
+                <th onClick={() => handleThClick("FTA")}>FTA</th>
+                <th onClick={() => handleThClick("FT%")}>FT%</th>
+                <th onClick={() => handleThClick("ORB")}>ORB</th>
+                <th onClick={() => handleThClick("DRB")}>DRB</th>
+                <th onClick={() => handleThClick("STL")}>STL</th>
+                <th onClick={() => handleThClick("BLK")}>BLK</th>
+                <th onClick={() => handleThClick("TOV")}>TOV</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+            </thead>
+            <tbody>
+              {filteredData.map((player, index) => (
+                <tr
+                  key={index}
+                  style={{
+                    backgroundColor: clickedRows[index]
+                      ? "#FFFF00"
+                      : "transparent",
+                  }}
+                  onClick={() => handleRowClick(index)}
+                >
+                  <td
+                    style={{ cursor:'pointer', color: "blue", whiteSpace: 'nowrap'}}
+                  >
+                    {player.Player}
+                  </td>
+                  <td>{player.Pos}</td>
+                  <td>{player.Age}</td>
+                  <td style={{ color: "blue" }}>{player.Tm}</td>
+                  <td>{player.G}</td>
+                  <td>{player.GS}</td>
+                  <td>{player.MP}</td>
+                  <td  style={{ backgroundColor: 'rgba(0, 0, 255, 0.2)', color: 'black', fontWeight: 'bold' }}>{player.PTS}</td>
+                  <td style={{ backgroundColor: 'rgba(0, 0, 255, 0.2)', color: 'black', fontWeight: 'bold' }}>
+                    {(
+                      +player.DRB + +player.ORB
+                    ).toFixed(1)}
+                  </td>
+                  <td style={{ backgroundColor: 'rgba(0, 0, 255, 0.2)', color: 'black', fontWeight: 'bold' }}>{player.AST}</td>
+                  <td>{player.FG}</td>
+                  <td>{player.FGA}</td>
+                  <td>{player["FG%"]}</td>
+                  <td>{player["3P"]}</td>
+                  <td>{player["3PA"]}</td>
+                  <td>{player["3P%"]}</td>
+                  <td>{player["2P"]}</td>
+                  <td>{player["2PA"]}</td>
+                  <td>{player["2P%"]}</td>
+                  <td>{player["FTA"]}</td>
+                  <td>{player["FT%"]}</td>
+                  <td>{player.ORB}</td>
+                  <td>{player.DRB}</td>
+                  <td>{player.STL}</td>
+                  <td>{player.BLK}</td>
+                  <td>{player.TOV}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
       </div>
     </div>
   );
