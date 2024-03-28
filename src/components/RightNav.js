@@ -77,7 +77,7 @@ function RightNav({ open, onClose }) {
     <Ul open={open} onClick={onClose}>
       <li onClick={handleHomeClick}>Home</li>
       <li onClick={handleStandingsClick}>Standings</li>
-      <li onClick={handleStatsClick}>Stats</li>
+      <li onClick={handleStatsClick}>Player Stats</li>
       <li onClick={handleLeadersClick}>Leaders</li>
       {/* <li onClick={handlePicksClick}>Picks</li> */}
       {/* <li onClick={handleGamesClick}>Games</li> */}
