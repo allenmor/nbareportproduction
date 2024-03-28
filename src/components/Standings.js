@@ -17,6 +17,7 @@ function Standings() {
       .then((data) => {
         setData(data);
         setIsLoading(false) 
+        console.log(data);
       });
   }, []);
 
