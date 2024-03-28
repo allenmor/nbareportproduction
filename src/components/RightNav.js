@@ -67,9 +67,9 @@ function RightNav({ open, onClose }) {
   //   handleLinkClick('/picks', event);
   // }
 
-  function handleGamesClick(event) {
-    handleLinkClick('/games', event)
-  }
+  // function handleGamesClick(event) {
+  //   handleLinkClick('/games', event)
+  // }
   // function handleChatClick(event) {
   //   handleLinkClick('/chat', event)
   // }
@@ -80,7 +80,7 @@ function RightNav({ open, onClose }) {
       <li onClick={handleStatsClick}>Stats</li>
       <li onClick={handleLeadersClick}>Leaders</li>
       {/* <li onClick={handlePicksClick}>Picks</li> */}
-      <li onClick={handleGamesClick}>Games</li>
+      {/* <li onClick={handleGamesClick}>Games</li> */}
       {/* <li onClick={handleChatClick}>Chat</li> */}
     </Ul>
   );
